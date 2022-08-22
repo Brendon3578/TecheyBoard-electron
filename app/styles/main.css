@@ -1,0 +1,94 @@
+body.home {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--neutral-50);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h1.title {
+  font-size: 2rem;
+  align-self: flex-start;
+  color: var(--neutral-800);
+  font-weight: bold;
+}
+
+img.logo {
+  width: 100px;
+}
+
+main {
+  width: 100%;
+  max-width: 20rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+span#username {
+  color: var(--purple-900);
+  display: block;
+  opacity: 0;
+  transform: translateY(0rem);
+}
+span#username.activeAnimation {
+  animation: usernameShowUp 0.7s ease forwards;
+}
+
+@keyframes usernameShowUp {
+  from {
+    opacity: 0;
+    transform: translateY(-1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0rem);
+  }
+}
+
+.main__form {
+  margin-top: 1.5rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.main__form__button {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.5rem;
+}
+
+.main__form__label {
+  width: 100%;
+  font-size: 1rem;
+  display: block;
+  font-weight: bold;
+  color: var(--neutral-700);
+}
+
+.main__form__label + .main__form__label {
+  margin-top: 0.5rem;
+}
+
+.main__form__input {
+  display: block;
+  width: 100%;
+  margin-top: 0.25rem;
+  padding: 0.5rem;
+  background-color: white;
+  border: 1px solid var(--neutral-400);
+  border-radius: 0.5rem;
+  outline: none;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.text__copyright {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  color: var(--neutral-400);
+}

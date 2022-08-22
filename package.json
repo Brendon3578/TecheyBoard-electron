@@ -1,0 +1,26 @@
+{
+  "name": "techeyboard-electron",
+  "version": "1.0.0",
+  "description": "A minimal Electron application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "",
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial",
+    "demo"
+  ],
+  "author": "Brendon Gomes",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^20.0.3"
+  },
+  "dependencies": {
+    "electron-reload": "^2.0.0-alpha.1",
+    "toastify-js": "^1.12.0"
+  }
+}
