@@ -17,7 +17,7 @@
   "author": "Brendon Gomes",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^20.0.3"
+    "electron": "^20.1.0"
   },
   "dependencies": {
     "@toast-ui/calendar": "^2.1.3",
