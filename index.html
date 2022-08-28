@@ -1,27 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
-    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'"> -->
-    <!-- <meta http-equiv="Content-Security-Policy" content="style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com;"> -->
-
+    <meta charset="UTF-8" />
     <!-- GOOGLE FONTS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- MAIN CSS -->
-    <link rel="stylesheet" href="./app/styles/reset.css">
-    <link rel="stylesheet" href="./app/styles/global.css">
-    <link rel="stylesheet" href="./app/styles/main.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="./app/styles/toastify.css" />
+    <link rel="stylesheet" href="./app/styles/reset.css" />
+    <link rel="stylesheet" href="./app/styles/global.css" />
+    <link rel="stylesheet" href="./app/styles/main.css" />
 
     <title>TecheyBoard</title>
   </head>
   <body class="home">
     <main>
-      <img src="./app/assets/logo.png" alt="Arduteam" class="logo">
+      <img src="./app/assets/logo.png" alt="Arduteam" class="logo" />
 
       <h1 class="title">
         Bem-vindo!
@@ -37,7 +36,7 @@
             onfocusout="fetchUsername()"
             maxlength="5"
             required
-          >
+          />
         </label>
         <label class="main__form__label">
           Senha
@@ -46,21 +45,18 @@
             class="main__form__input"
             id="login-password"
             required
-          >
+          />
         </label>
-        
-        <button class="btn solid main__form__button">
+
+        <button class="btn solid main__form__button" onclick="openCalendar()">
           Entrar
         </button>
       </form>
     </main>
 
-    <span class="text__copyright">
-      &copy; Arduteam
-    </span>
+    <span class="text__copyright"> &copy; Arduteam </span>
 
-    <!-- You can also require other files to run in this process -->
-    <script src="./app/scripts/login.js"></script>
+    <script src="./index.js"></script>
     <script src="./renderer.js"></script>
   </body>
 </html>

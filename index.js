@@ -38,5 +38,5 @@ const fetchUsername = () => {
 
 
 const openCalendar = () => {
-  document.location.href = 'app/pages/scheduling.html';
+  document.location.href = 'app/pages/scheduling/scheduling.html';
 }
