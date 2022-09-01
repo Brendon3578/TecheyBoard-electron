@@ -1,0 +1,56 @@
+.calendar--select {
+  position: relative;
+  display: inline-block;
+  /* margin-bottom: 15px; */
+  width: 8rem;
+}
+.calendar--select select {
+  display: inline-block;
+  font-family: "Open-sans", sans-serif;
+  font-weight: bold;
+  font-size: 0.875rem;
+  width: 100%;
+  cursor: pointer;
+  padding: 0.25rem 0.625rem;
+  outline: 0;
+  border: 0px solid #000000;
+  border-radius: 0.5rem;
+  background-color: var(--opacity-w-200);
+  color: white;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+.calendar--select select::-ms-expand {
+  display: none;
+}
+.calendar--select select:hover,
+.calendar--select select:focus {
+  background-color: var(--purple-600);
+}
+.calendar--select select:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+.calendar--select_arrow {
+  position: absolute;
+  top: 0.4rem;
+  right: 15px;
+  width: 0px;
+  height: 0px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  cursor: pointer;
+  pointer-events: none;
+}
+.calendar--select select:hover ~ .select_arrow,
+.calendar--select select:focus ~ .select_arrow {
+  border-color: #000000;
+}
+.calendar--select select:disabled ~ .select_arrow {
+  border-top-color: #cccccc;
+}

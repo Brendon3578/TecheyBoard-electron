@@ -2,43 +2,191 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <!-- <script src="https://cdn.jsdelivr.net/npm/fullcalendar-scheduler@5.11.3/main.js"></script> -->
-    
-
-    <!-- GOOGLE FONTS -->
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="../../styles/fonts.css" />
 
     <!-- MAIN CSS -->
-    <link rel="stylesheet" href="../../styles/loading.css" />
     <link rel="stylesheet" href="../../styles/reset.css" />
     <link rel="stylesheet" href="../../styles/global.css" />
     <link rel="stylesheet" href="../../styles/main.css" />
+    <link rel="stylesheet" href="./styles/scheduling.css" />
+    <link rel="stylesheet" href="./styles/select.css" />
+    <link rel="stylesheet" href="./styles/loading.css" />
 
-    <link rel="stylesheet" href="../../styles/toastui-calendar.min.css">
+    <!-- ICONS -->
+    <link rel="stylesheet" href="../../assets/icon/phosphoricons.css" />
+
+    <link rel="stylesheet" href="../../styles/toastui-calendar.min.css" />
 
     <title>TecheyBoard</title>
   </head>
-  <body class="scheduling">
-    <main>
-      <img src="../../assets/logo.png" alt="Arduteam" class="logo" />
+  <body>
+    <div class="scheduling-app">
+      <header>
+        <img class="logo" src="../../assets/logo.png" alt="Arduteam" />
 
-      <h1>Tela de agendamento</h1>
+        <div class="profile">
+          <div class="notification">
+            <i class="ph-bell ph-xl"></i>
+          </div>
+          <div class="username">
+            <div class="photo ph-lg">
+              <i class="ph-user"></i>
+            </div>
+            <span> Brendon Gomes </span>
+            <span class="icon">
+              <i class="ph-caret-down"></i>
+            </span>
+          </div>
+        </div>
+      </header>
+      <main class="application-main">
+        <header>
+          <h1>TecheyBoard</h1>
+          <div class="information-hour">
+            <i class="ph-globe ph-xl"></i>
+            <p>São Paulo, Etec de Sapopemba 6:50</p>
+          </div>
+        </header>
+        <aside class="sidebar--availability">
+          <div class="availability--lab-list">
+            <p class="label">Chaves em uso - Manhã</p>
+            <p class="reserved-keys--title">Laboratório de Informática - 1</p>
+            <ul class="reserved-keys--list" id="reserved-keys-lab-1">
+              <!-- <li title="Laboratório 1 Reservado à Roseli - 07:10 - 08:40">
+                <span class="info">
+                  <i class="ph-clock ph-lg"></i>
+                  1&ordf; e 2&ordf; aula
+                </span>
+                <span>Roseli</span>
+              </li> -->
+            </ul>
 
-      <div id="loading">
-        <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
-      </div>
+            <p class="reserved-keys--title">Laboratório de Informática - 2</p>
+            <ul class="reserved-keys--list" id="reserved-keys-lab-2"></ul>
+          </div>
 
-      <div id="calendar" style="height: 50vh; width: 800px;"></div>
+          <div class="availability--lab-info">
+            <p class="label">Laboratórios em Manutenção</p>
+            <p class="lab--maintenance">Laboratório 3</p>
+          </div>
+        </aside>
+        <article class="calendar--container">
+          <header class="calendar--actions">
+            <div class="calendar--select">
+              <select id="dateViewSelect" onchange="changeDateView()">
+                <option value="day">Dia</option>
+                <option value="week">Semana</option>
+              </select>
+              <div class="calendar--select_arrow"></div>
+            </div>
 
-    <!-- <span class="text__copyright"> &copy; Arduteam </span> -->
+            <div class="calendar--day">
+              <i class="ph-calendar-blank-bold"></i>
+              <span id="todayDay"> 29 de Agosto, 2022 </span>
+            </div>
 
+            <div class="calendar--change-day">
+              <button onclick="prevDay()">
+                <i class="ph-arrow-left-bold"></i>
+              </button>
+              <button onclick="nextDay()">
+                <i class="ph-arrow-right-bold"></i>
+              </button>
+            </div>
+          </header>
+          <div class="calendar-widget">
+            <div id="loading">
+              <i class="ph-circle-notch-bold"></i>
+            </div>
+            <div id="calendar"></div>
+          </div>
+        </article>
+        <aside class="sidebar--user-actions">
+          <p class="label">Ações</p>
+          <ul class="actions--list">
+            <li>
+              <button class="accordion--button">
+                <div>
+                  <i class="ph-calendar-plus ph-xl"></i>
+                  <span> Agendar </span>
+                </div>
+                <i class="ph-caret-down arrow"></i>
+              </button>
+              <div class="accordion--panel">
+                <div class="accordion--content">
+                  <label>
+                    Laboratório
+                    <select>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                    </select>
+                  </label>
+                  <label>
+                    Horário de Reserva
+                    <input type="datetime-local" name="" id="" />
+                  </label>
+                  <label>
+                    Quantidade de aulas
+                    <input type="range" min="1" max="3" />
+                  </label>
+                  <button>Enviar</button>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <button class="accordion--button">
+                <div>
+                  <i class="ph-key ph-xl"></i>
+                  <span> Pegar </span>
+                </div>
+                <i class="ph-caret-down arrow"></i>
+              </button>
+              <div class="accordion--panel">
+                <div class="accordion--content">
+                  <label>
+                    Laboratório
+                    <select>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                    </select>
+                  </label>
+                  <label>
+                    Horário de Reserva
+                    <input type="datetime-local" name="" id="" />
+                  </label>
+                  <label>
+                    Quantidade de aulas
+                    <input type="range" min="1" max="3" />
+                  </label>
+                  <button>Enviar</button>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <button class="accordion--button">
+                <div>
+                  <i class="ph-key-return ph-xl"></i>
+                  <span> Devolver </span>
+                </div>
+                <i class="ph-caret-down arrow"></i>
+              </button>
+              <div class="accordion--panel">
+                <div class="accordion--content">
+                  <div class="action-return">
+                    <span> Chave do laboratório 1 </span>
+                    <button>Devolver</button>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </aside>
+      </main>
+    </div>
     <!-- You can also require other files to run in this process -->
     <script src="./scheduling.js"></script>
+    <script type="module" src="./data-constructor.js"></script>
   </body>
 </html>

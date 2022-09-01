@@ -4,6 +4,8 @@
 const {app, BrowserWindow} = require('electron')
 const path = require('path')
 
+const mainPage = __dirname + '/app/pages/index/index.html'
+
 const electronReload = require('electron-reload');
 electronReload(__dirname, {});
 
@@ -13,6 +15,7 @@ function createWindow () {
   const mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
+    icon: __dirname + '/app/assets/icon.ico',
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
@@ -20,7 +23,7 @@ function createWindow () {
   })
 
   // and load the index.html of the app.
-  mainWindow.loadFile('index.html')
+  mainWindow.loadFile(mainPage)
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()

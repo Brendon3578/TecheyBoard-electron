@@ -1,15 +1,6 @@
-body.home {
-  width: 100vw;
-  height: 100vh;
-  background-color: var(--neutral-50);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-body.scheduling {
-  width: 100vw;
-  height: 100vh;
+body {
+  width: 100%;
+  min-height: 100vh;
   background-color: var(--neutral-50);
   display: flex;
   align-items: center;
@@ -27,7 +18,7 @@ img.logo {
   width: 200px;
 }
 
-main {
+main#home {
   width: 100%;
   max-width: 20rem;
   display: flex;
@@ -92,8 +83,7 @@ span#username.activeAnimation {
   border: 1px solid var(--neutral-400);
   border-radius: 0.5rem;
   outline: none;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  box-shadow: var(--shadow-min);
 }
 
 .text__copyright {
