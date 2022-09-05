@@ -14,7 +14,6 @@ for (const reserva of ChavesReservadas) {
   const reservadoString = `Laboratório ${reserva.numeroLaboratorio} reservado à ${reserva.professor.nome}`
 
   let aulasString = reserva.horarioReservado.aulasPegadas.join('&ordf;, ') + '&ordf; aula';
-
   if (reserva.horarioReservado.aulasPegadas.length > 1) aulasString += 's';
 
   

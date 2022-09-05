@@ -22,6 +22,7 @@
   "dependencies": {
     "@toast-ui/calendar": "^2.1.3",
     "electron-reload": "^2.0.0-alpha.1",
+    "tippy.js": "^6.3.7",
     "toastify-js": "^1.12.0",
     "yarn": "^1.22.19"
   },

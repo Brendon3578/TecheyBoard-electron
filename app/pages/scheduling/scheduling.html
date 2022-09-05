@@ -20,29 +20,55 @@
     <title>TecheyBoard</title>
   </head>
   <body>
-    <div class="scheduling-app">
-      <header>
+    <div class="app">
+      <header class="app__header">
         <img class="logo" src="../../assets/logo.png" alt="Arduteam" />
 
         <div class="profile">
-          <div class="notification">
+          <div class="notification-icon" id="notification-tooltip-trigger">
             <i class="ph-bell ph-xl"></i>
           </div>
-          <div class="username">
-            <div class="photo ph-lg">
-              <i class="ph-user"></i>
+          <div id="notification-el" style="display: none">
+            <div class="notification__container">
+              <span>Você não tem nenhuma notificação</span>
+            </div>
+          </div>
+
+          <div class="user-info">
+            <div class="photo">
+              <i class="ph-user ph-lg"></i>
             </div>
             <span> Brendon Gomes </span>
-            <span class="icon">
+            <span class="icon" id="user-menu-trigger">
               <i class="ph-caret-down"></i>
             </span>
+
+            <div id="user-popover-menu-el" style="display: none">
+              <article class="user-menu__container">
+                <main>
+                  <div class="user-menu__info">
+                    <div class="photo">
+                      <i class="ph-user ph-2x"></i>
+                    </div>
+                    <p>Brendon Gomes</p>
+                  </div>
+                  <a href="../index/index.html" class="btn ghost btn-logout">
+                    Deslogar do sistema
+                  </a>
+                </main>
+                <footer>
+                  <a href="#">Como utilizar o sistema</a>
+                  <a href="#">Termos de serviço</a>
+                </footer>
+              </article>
+            </div>
           </div>
         </div>
       </header>
-      <main class="application-main">
-        <header>
+      <main class="app__main">
+        <header class="main__header">
           <h1>TecheyBoard</h1>
-          <div class="information-hour">
+          <div class="system-information">
             <i class="ph-globe ph-xl"></i>
             <p>São Paulo, Etec de Sapopemba 6:50</p>
           </div>
@@ -51,15 +77,7 @@
           <div class="availability--lab-list">
             <p class="label">Chaves em uso - Manhã</p>
             <p class="reserved-keys--title">Laboratório de Informática - 1</p>
-            <ul class="reserved-keys--list" id="reserved-keys-lab-1">
-              <!-- <li title="Laboratório 1 Reservado à Roseli - 07:10 - 08:40">
-                <span class="info">
-                  <i class="ph-clock ph-lg"></i>
-                  1&ordf; e 2&ordf; aula
-                </span>
-                <span>Roseli</span>
-              </li> -->
-            </ul>
+            <ul class="reserved-keys--list" id="reserved-keys-lab-1"></ul>
 
             <p class="reserved-keys--title">Laboratório de Informática - 2</p>
             <ul class="reserved-keys--list" id="reserved-keys-lab-2"></ul>
@@ -70,35 +88,38 @@
             <p class="lab--maintenance">Laboratório 3</p>
           </div>
         </aside>
-        <article class="calendar--container">
-          <header class="calendar--actions">
-            <div class="calendar--select">
-              <select id="dateViewSelect" onchange="changeDateView()">
-                <option value="day">Dia</option>
-                <option value="week">Semana</option>
-              </select>
-              <div class="calendar--select_arrow"></div>
-            </div>
+        <article class="calendar--application">
+          <p class="label">Calendário das Chaves</p>
+          <div class="calendar--container">
+            <header class="calendar--actions">
+              <div class="calendar--select">
+                <select id="dateViewSelect" onchange="changeDateView()">
+                  <option value="day">Dia</option>
+                  <option value="week">Semana</option>
+                </select>
+                <div class="calendar--select_arrow"></div>
+              </div>
 
-            <div class="calendar--day">
-              <i class="ph-calendar-blank-bold"></i>
-              <span id="todayDay"> 29 de Agosto, 2022 </span>
-            </div>
+              <div class="calendar--day">
+                <i class="ph-calendar-blank-bold"></i>
+                <span id="todayDay"> 29 de Agosto, 2022 </span>
+              </div>
 
-            <div class="calendar--change-day">
-              <button onclick="prevDay()">
-                <i class="ph-arrow-left-bold"></i>
-              </button>
-              <button onclick="nextDay()">
-                <i class="ph-arrow-right-bold"></i>
-              </button>
+              <div class="calendar--change-day">
+                <button onclick="prevDay()">
+                  <i class="ph-arrow-left-bold"></i>
+                </button>
+                <button onclick="nextDay()">
+                  <i class="ph-arrow-right-bold"></i>
+                </button>
+              </div>
+            </header>
+            <div class="calendar-widget">
+              <div id="loading">
+                <i class="ph-circle-notch-bold"></i>
+              </div>
+              <div id="calendar"></div>
             </div>
-          </header>
-          <div class="calendar-widget">
-            <div id="loading">
-              <i class="ph-circle-notch-bold"></i>
-            </div>
-            <div id="calendar"></div>
           </div>
         </article>
         <aside class="sidebar--user-actions">
@@ -114,22 +135,60 @@
               </button>
               <div class="accordion--panel">
                 <div class="accordion--content">
-                  <label>
-                    Laboratório
-                    <select>
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                    </select>
+                  <div class="lab-container">
+                    <p class="label--accordion">Sala do laboratório</p>
+                    <div class="select-primary">
+                      <select>
+                        <option>Selecione um laboratório</option>
+                        <option>Laboratório 1</option>
+                        <option>Laboratório 2</option>
+                        <option>Laboratório 3</option>
+                      </select>
+                      <div class="select-arrow"></div>
+                    </div>
+                  </div>
+
+                  <label class="date-container">
+                    <p class="label--accordion">Data reservada</p>
+                    <input type="date" />
                   </label>
-                  <label>
-                    Horário de Reserva
-                    <input type="datetime-local" name="" id="" />
-                  </label>
-                  <label>
-                    Quantidade de aulas
-                    <input type="range" min="1" max="3" />
-                  </label>
-                  <button>Enviar</button>
+                  <div class="classes-container">
+                    <p class="label--accordion">Horário das aulas</p>
+
+                    <div class="input-group">
+                      <div class="select-primary">
+                        <select>
+                          <option>Aula inicial</option>
+                          <option>das 7:10 - 1ª Aula</option>
+                          <option>das 8:00 - 2ª Aula</option>
+                          <option>das 8:50 - 3ª Aula</option>
+                          <option>das 10:00 - 4ª Aula</option>
+                          <option>das 10:50 - 5ª Aula</option>
+                          <option>das 11:40 - 6ª Aula</option>
+                        </select>
+                        <div class="select-arrow"></div>
+                      </div>
+
+                      <div class="select-primary">
+                        <select>
+                          <option>Término da aula</option>
+                          <option>até 8:00</option>
+                          <option>até 8:50</option>
+                          <option>até 9:40</option>
+                          <option>até 10:50</option>
+                          <option>até 11:40</option>
+                          <option>até 12:30</option>
+                        </select>
+                        <div class="select-arrow"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="btn-container">
+                    <button class="btn solid scheduling-key-button">
+                      Agendar
+                    </button>
+                  </div>
                 </div>
               </div>
             </li>
@@ -144,22 +203,56 @@
               </button>
               <div class="accordion--panel">
                 <div class="accordion--content">
-                  <label>
-                    Laboratório
-                    <select>
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                    </select>
-                  </label>
-                  <label>
-                    Horário de Reserva
-                    <input type="datetime-local" name="" id="" />
-                  </label>
-                  <label>
-                    Quantidade de aulas
-                    <input type="range" min="1" max="3" />
-                  </label>
-                  <button>Enviar</button>
+                  <div class="lab-container">
+                    <p class="label--accordion">Sala do laboratório</p>
+                    <div class="select-primary">
+                      <select>
+                        <option>Selecione um laboratório</option>
+                        <option>Laboratório 1</option>
+                        <option>Laboratório 2</option>
+                        <option>Laboratório 3</option>
+                      </select>
+                      <div class="select-arrow"></div>
+                    </div>
+                  </div>
+
+                  <div class="classes-container">
+                    <p class="label--accordion">Horário das aulas</p>
+
+                    <div class="input-group">
+                      <div class="select-primary">
+                        <select>
+                          <option>Aula inicial</option>
+                          <option>das 7:10 - 1ª Aula</option>
+                          <option>das 8:00 - 2ª Aula</option>
+                          <option>das 8:50 - 3ª Aula</option>
+                          <option>das 10:00 - 4ª Aula</option>
+                          <option>das 10:50 - 5ª Aula</option>
+                          <option>das 11:40 - 6ª Aula</option>
+                        </select>
+                        <div class="select-arrow"></div>
+                      </div>
+
+                      <div class="select-primary">
+                        <select>
+                          <option>Término da aula</option>
+                          <option>até 8:00</option>
+                          <option>até 8:50</option>
+                          <option>até 9:40</option>
+                          <option>até 10:50</option>
+                          <option>até 11:40</option>
+                          <option>até 12:30</option>
+                        </select>
+                        <div class="select-arrow"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="btn-container">
+                    <button class="btn solid scheduling-key-button">
+                      Liberar chave
+                    </button>
+                  </div>
                 </div>
               </div>
             </li>
@@ -175,8 +268,23 @@
               <div class="accordion--panel">
                 <div class="accordion--content">
                   <div class="action-return">
-                    <span> Chave do laboratório 1 </span>
-                    <button>Devolver</button>
+                    <p class="label--accordion">Chaves em uso</p>
+                    <div class="scheduled-key--container">
+                      <div class="icon">
+                        <i class="ph-desktop-tower ph-lg"></i>
+                      </div>
+                      <div class="description">
+                        <p>Laboratório 1 - Informática</p>
+                        <span>08:50 - 9:40</span>
+                      </div>
+
+                      <button
+                        class="scheduled-key--return"
+                        title="Devolver chave"
+                      >
+                        <i class="ph-arrow-u-up-left ph-lg"></i>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -186,7 +294,9 @@
       </main>
     </div>
     <!-- You can also require other files to run in this process -->
-    <script src="./scheduling.js"></script>
-    <script type="module" src="./data-constructor.js"></script>
+    <script src="./scripts/scheduling.js"></script>
+
+    <script type="module" src="./scripts/data-constructor.js"></script>
+    <script src="./scripts/behaviour.js"></script>
   </body>
 </html>
