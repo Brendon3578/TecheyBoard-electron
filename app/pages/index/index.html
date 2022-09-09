@@ -21,14 +21,15 @@
         Bem-vindo!
         <span id="username">&nbsp;</span>
       </h1>
-      <form class="main__form">
+      <form class="main__form" id="login-form">
         <label class="main__form__label">
           RM
           <input
             type="text"
+            name="rm"
             class="main__form__input"
             id="login-rm"
-            onfocusout="fetchUsername()"
+            onfocusout="showUsernameFadeInEffect()"
             maxlength="5"
             required
           />
@@ -37,15 +38,15 @@
           Senha
           <input
             type="password"
+            name="password"
             class="main__form__input"
             id="login-password"
             required
+            disabled
           />
         </label>
 
-        <button class="btn solid main__form__button" onclick="openCalendar()">
-          Entrar
-        </button>
+        <button class="btn solid main__form__button">Entrar</button>
       </form>
     </main>
 

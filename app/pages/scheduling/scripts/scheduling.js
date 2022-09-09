@@ -1,91 +1,149 @@
-const Calendar = require('@toast-ui/calendar');
+const Calendar = require("@toast-ui/calendar");
 
-window.addEventListener('DOMContentLoaded', () => {
-  console.log("DOM Carregou")
+import { ChavesReservadas } from "./data-mock.js";
+import { formatDate } from "./utils.js";
+
+window.addEventListener("DOMContentLoaded", () => {
+  console.log("DOM Carregou");
 });
 
-const dateStart = new Date();
-const dateEnd = new Date(new Date().setMinutes(dateStart.getMinutes() + 120));
+const dayNames = [
+  "Segunda",
+  "Terça",
+  "Quarta",
+  "Quinta",
+  "Sexta",
+  "Sábado",
+  "Domingo",
+];
 
-  const calendar = new Calendar('#calendar', {
-    defaultView: 'day',
-    isReadOnly: true,
-    useDetailPopup: true,
-    week: {
-      eventView: ['time'],
-      taskView: false,
-      dayNames: ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo']
+const calendar = new Calendar("#calendar", {
+  defaultView: "day",
+  isReadOnly: true,
+  useDetailPopup: false,
+  useCreationPopup: false,
+  week: {
+    eventView: ["time"],
+    taskView: false,
+    dayNames: dayNames,
+  },
+  template: {
+    weekDayName(model) {
+      return (
+        '<div class="calendar-event-weekday-name">' +
+        '<div class="week-dayNumber">' +
+        model.date +
+        "</div>" +
+        '<div class="week-dayName">' +
+        model.dayName.slice(0, 3) +
+        "</div>" +
+        "</div>"
+      );
     },
-    template: {
-      weekDayName(model) {
-        return (
-          '<div class="calendar-event-weekday-name">' +
-            '<div class="week-dayNumber">'+ model.date +'</div>' +
-            '<div class="week-dayName">'+ model.dayName.slice(0, 3) +'</div>' +
-          '</div>'
-        )
-      },
-      time(event) {
-        return `<div class="key-reserved">${event.title}<br>${event.body}</div>`
-      },
-    }
-  });
+    time(event) {
+      return `<div class="key-reserved">${event.title}<br>${event.body}</div>`;
+    },
+  },
+});
+
+const createNewLessonSchedulingOnCalendar = ({
+  id,
+  teacherName,
+  labNumber,
+  classesAmountLength,
+  keyTakenHour,
+  keyReturnedHour,
+}) => {
+  const schedulingTitle = `Laboratório ${labNumber} - ${teacherName}`;
+
+  const keyTakenHourString = formatDate(keyTakenHour, "HH:MM");
+
+  const keyReturnedHourString = formatDate(keyReturnedHour, "HH:MM");
+
+  const schedulingBody =
+    `Laboratório ${labNumber} reservado à ${teacherName} ` +
+    `${classesAmountLength} Aulas - ${keyTakenHourString} - ${keyReturnedHourString} `;
+
+  const schedulingColor = ["blue", "orange", "purple"];
 
   calendar.createEvents([
     {
-      id: '1',
-      calendarId: '1',
-      title: 'Laboratório 1 - Roseli',
-      category: 'time',
-      dueDateClass: '',
-
+      id: id,
+      calendarId: "1",
+      title: schedulingTitle,
+      category: "time",
+      dueDateClass: "",
       customStyle: {
-        color: "#ffffff",
-        backgroundColor: "var(--purple-500)",
-        borderLeft: '0.25rem solid var(--purple-600)',
-        borderRadius: '0.5rem',
-        padding: '0.5rem',
-        fontWeight: 'bold',
+        color: "#fff",
+        backgroundColor: `var(--${schedulingColor[labNumber - 1]}-500)`,
+        borderLeft: `0.25rem solid var(--${
+          schedulingColor[labNumber - 1]
+        }-600)`,
+        borderRadius: "0.5rem",
+        padding: "0.5rem",
+        fontWeight: "bold",
       },
-      body: 'Laboratório 1 reservado à Roseli - 2 Aulas 07:10 - 08:40',
-
-      start: dateStart,
-      end: dateEnd,
+      body: schedulingBody,
+      start: keyTakenHour,
+      end: keyReturnedHour,
     },
   ]);
+};
 
-document.querySelector('#loading').classList.add('hidden');
+for (const chave of ChavesReservadas) {
+  const keyInfo = {
+    id: chave.id,
+    teacherName: chave.teacher.name,
+    labNumber: chave.labNumber,
+    classesAmountLength: chave.scheduledTime.classesAmount.length,
+    keyTakenHour: new Date(chave.scheduledTime.keyTakenHour),
+    keyReturnedHour: new Date(chave.scheduledTime.keyReturnedHour),
+  };
 
-  // variavel que armazena a data do calendário de hoje,
-let today = calendar.getDate().valueOf();
+  createNewLessonSchedulingOnCalendar(keyInfo);
+}
 
-// Formata a data do calendario em uma data composta:  30 de ago. de 2022
-today = new Intl.DateTimeFormat('pt-BR', { day: 'numeric', month: 'short', year: 'numeric'} ).format(today)
+document.querySelector("#loading").classList.add("hidden");
 
-document.querySelector('#todayDay').textContent = today
+// Quando rodar esse script, irá setar o valor do dia dentro do widget do calendário
+document.querySelector("#todayDay").textContent = formatDate(
+  calendar.getDate().valueOf(),
+  "DD/MM/YYYY -long"
+);
 
 const updateDayInfo = () => {
-  let calendarDate = calendar.getDate();
-
-  calendarDate = new Intl.DateTimeFormat('pt-BR', { day: 'numeric', month: 'short', year: 'numeric'} ).format(calendarDate)
-
-  document.querySelector('#todayDay').textContent = calendarDate;
-}
+  document.querySelector("#todayDay").textContent = formatDate(
+    calendar.getDate(),
+    "DD/MM/YYYY -long"
+  );
+};
 
 const changeDateView = () => {
-  let dateView = document.getElementById('dateViewSelect').value;
-  console.log(dateView)
+  let dateView = document.getElementById("dateViewSelect").value;
 
-  if (dateView == 'day') calendar.changeView('day');
-  if (dateView == 'week') calendar.changeView('week');
-}
+  if (dateView == "day") calendar.changeView("day");
+  if (dateView == "week") calendar.changeView("week");
+};
 
 const prevDay = () => {
   calendar.prev();
   updateDayInfo();
-}
+};
 
 const nextDay = () => {
   calendar.next();
   updateDayInfo();
-}
+};
+
+const moveCalendarDateToToday = () => {
+  calendar.today();
+  updateDayInfo();
+};
+
+window.updateDayInfo = updateDayInfo;
+window.changeDateView = changeDateView;
+window.nextDay = nextDay;
+window.prevDay = prevDay;
+window.moveCalendarDateToToday = moveCalendarDateToToday;
+
+export { createNewLessonSchedulingOnCalendar };

@@ -1,33 +1,46 @@
-import { ChavesReservadas } from './data-mock.js';
+import { ChavesReservadas } from "./data-mock.js";
+import { formatDate } from "./utils.js";
 
-const fazerHorarioComposto = (hour) => {
-  return hour.getHours() + ":" + hour.getMinutes().toString();
-}
-
+console.log(ChavesReservadas);
 for (const reserva of ChavesReservadas) {
-  const labSelector = '#reserved-keys-lab-' + reserva.numeroLaboratorio
-  const lab = document.querySelector(labSelector)
+  const labSelector = "#reserved-keys-lab-" + reserva.labNumber;
+  const noKeyInUseTextEl = document.querySelector(
+    labSelector + " .reserved-keys__nothing"
+  );
 
-  const horarioInicialReservadoString = fazerHorarioComposto(reserva.horarioReservado.horarioPegado);
-  const horarioFinalReservadoString = fazerHorarioComposto(reserva.horarioReservado.horarioDevolvido);
+  noKeyInUseTextEl.classList.add("hidden");
 
-  const reservadoString = `Laboratório ${reserva.numeroLaboratorio} reservado à ${reserva.professor.nome}`
+  const lab = document.querySelector(labSelector);
 
-  let aulasString = reserva.horarioReservado.aulasPegadas.join('&ordf;, ') + '&ordf; aula';
-  if (reserva.horarioReservado.aulasPegadas.length > 1) aulasString += 's';
+  const horarioInicialReservadoString = formatDate(
+    new Date(reserva.scheduledTime.keyTakenHour),
+    "HH:MM"
+  );
+  const horarioFinalReservadoString = formatDate(
+    new Date(reserva.scheduledTime.keyReturnedHour),
+    "HH:MM"
+  );
 
-  
-  lab.innerHTML = lab.innerHTML += (
-    '<li title="'+ reservadoString +' - ' +
-    horarioInicialReservadoString
-    +' - ' +
-    horarioFinalReservadoString
-    +'">' +
+  const reservadoString = `Laboratório ${reserva.labNumber} reservado à ${reserva.teacher.name}`;
+
+  let aulasString =
+    reserva.scheduledTime.classesAmount.join("&ordf;, ") + "&ordf; aula";
+  if (reserva.scheduledTime.classesAmount.length > 1) aulasString += "s";
+
+  lab.innerHTML = lab.innerHTML +=
+    '<li class="reserved-keys__item" title="' +
+    reservadoString +
+    " - " +
+    horarioInicialReservadoString +
+    " - " +
+    horarioFinalReservadoString +
+    '">' +
     '<span class="info">' +
-      '<i class="ph-clock ph-lg"></i>' +
-      aulasString +
-    '</span>' +
-    '<span>'+ reserva.professor.nome +'</span>' +
-    '</li>'
-  )
+    '<i class="ph-clock ph-lg"></i>' +
+    aulasString +
+    "</span>" +
+    "<span>" +
+    reserva.teacher.name +
+    "</span>" +
+    "</li>";
 }

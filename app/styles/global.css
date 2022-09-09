@@ -54,10 +54,22 @@
   --yellow-800: #854d0e;
   --yellow-900: #713f12;
 
+  --orange-50: #fff7ed;
+  --orange-100: #ffedd5;
+  --orange-200: #fed7aa;
+  --orange-300: #fdba74;
+  --orange-400: #fb923c;
+  --orange-500: #f97316;
+  --orange-600: #ea580c;
+  --orange-700: #c2410c;
+  --orange-800: #9a3412;
+  --orange-900: #7c2d12;
+
   --neutral-50: #fafafa;
   --neutral-100: #f4f4f5;
   --neutral-200: #e4e4e7;
   --neutral-300: #d4d4d8;
+  --neutral-350: #c5c5c9;
   --neutral-400: #a1a1aa;
   --neutral-500: #71717a;
   --neutral-600: #52525b;
@@ -89,9 +101,11 @@ input {
   cursor: pointer;
   background: none;
   border: none;
-}
-input {
   outline: none;
+}
+input[type="text"],
+input[type="password"] {
+  cursor: text;
 }
 
 a {
@@ -119,6 +133,15 @@ select {
 
 select::-ms-expand {
   display: none;
+}
+
+.label {
+  font-weight: 700;
+  margin-bottom: 1rem;
+  padding: 0 0 0.5rem 0.5rem;
+  font-family: "Poppins", sans-serif;
+  color: var(--neutral-600);
+  border-bottom: 1px solid var(--neutral-300);
 }
 
 .btn {

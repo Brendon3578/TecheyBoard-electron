@@ -85,6 +85,11 @@ span#username.activeAnimation {
   outline: none;
   box-shadow: var(--shadow-min);
 }
+.main__form__input:disabled {
+  background-color: var(--neutral-300);
+  opacity: 0.4;
+  cursor: not-allowed;
+}
 
 .text__copyright {
   position: absolute;
