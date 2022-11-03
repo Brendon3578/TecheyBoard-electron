@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="../../styles/fonts.css" />
+
+    <link rel="stylesheet" href="../../styles/tailwind/tailwind.css" />
+
+    <!-- CALENDAR (TOAST UI) CSS -->
+    <link rel="stylesheet" href="../../styles/toastui-calendar.min.css" />
+
+    <title>Home</title>
+  </head>
+  <body>
+    <div class="app">
+      <aside
+        class="app__sidebar"
+        id="sidebar"
+        aria-label="Sidebar - Barra Lateral"
+      >
+        <div class="sidebar__brand">
+          <img
+            src="../../assets/logo-icon.png"
+            alt="Arduteam"
+            class="logo__img"
+          />
+          <span class="logo__title"><span>Ardu</span>team</span>
+        </div>
+
+        <nav class="sidebar__navigation">
+          <div class="sidebar__section">
+            <h4 class="sidebar__label">INÍCIO</h4>
+            <a
+              href="#"
+              class="navigation__link navigation__link--highlighted"
+              title="Acessar Calendário"
+            >
+              <!-- prettier-ignore -->
+
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" />
+              </svg>
+
+              <span> Calendário </span>
+            </a>
+          </div>
+
+          <div class="sidebar__separator"></div>
+
+          <div class="sidebar__section">
+            <h4 class="sidebar__label">AÇÕES</h4>
+            <a
+              href="../schedule-key/schedule-key.html"
+              class="navigation__link"
+              title="Acessar tela de Agendar de Chave"
+            >
+              <!-- prettier-ignore -->
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              <span>Agendar Chave</span>
+            </a>
+            <a
+              href=""
+              class="navigation__link"
+              title="Acessar tela de Retirar Chave"
+            >
+              <!-- prettier-ignore -->
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 8.25H7.5a2.25 2.25 0 00-2.25 2.25v9a2.25 2.25 0 002.25 2.25h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25H15m0-3l-3-3m0 0l-3 3m3-3V15" />
+                </svg>
+              <span>Retirar Chave</span>
+            </a>
+            <a
+              href=""
+              class="navigation__link"
+              title="Acessar tela de Devolver Chave"
+            >
+              <!-- prettier-ignore -->
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" />
+                </svg>
+              <span>Devolver Chave</span>
+            </a>
+            <a href="" class="navigation__link">
+              <!-- prettier-ignore -->
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zM3.75 12h.007v.008H3.75V12zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm-.375 5.25h.007v.008H3.75v-.008zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                </svg>
+              <span>Chaves Agendadas</span>
+            </a>
+          </div>
+
+          <div class="sidebar__separator"></div>
+
+          <div class="sidebar__section">
+            <h4 class="sidebar__label">CONFIGURAÇÕES</h4>
+
+            <a
+              href=""
+              class="navigation__link"
+              title="Acessar configurações da Conta"
+            >
+              <!-- prettier-ignore -->
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              <span>Conta</span>
+            </a>
+          </div>
+        </nav>
+
+        <div class="sidebar__user-wrapper">
+          <div class="user__avatar">
+            <p class="user__avatar__letters">BG</p>
+          </div>
+          <p class="user__name">Brendon Gomes</p>
+        </div>
+
+        <button
+          class="sidebar__toggle-button"
+          id="toggle-sidebar-btn"
+          title="Fechar Sidebar"
+          aria-expanded="true"
+        >
+          <!-- prettier-ignore -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+            <path fill-rule="evenodd" d="M10.21 14.77a.75.75 0 01.02-1.06L14.168 10 10.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+            <path fill-rule="evenodd" d="M4.21 14.77a.75.75 0 01.02-1.06L8.168 10 4.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+          </svg>
+        </button>
+      </aside>
+
+      <main class="app__main">
+        <section class="app__main__content">
+          <header class="content__header">
+            <div class="content__header__title">
+              <span class="header__title__icon">
+                <!-- prettier-ignore -->
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" />
+                </svg>
+              </span>
+
+              <h2>Calendário</h2>
+            </div>
+
+            <div class="content__header__button-list">
+              <button title="Imprimir Calendário" class="button-list__item">
+                <!-- prettier-ignore -->
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6.72 13.829c-.24.03-.48.062-.72.096m.72-.096a42.415 42.415 0 0110.56 0m-10.56 0L6.34 18m10.94-4.171c.24.03.48.062.72.096m-.72-.096L17.66 18m0 0l.229 2.523a1.125 1.125 0 01-1.12 1.227H7.231c-.662 0-1.18-.568-1.12-1.227L6.34 18m11.318 0h1.091A2.25 2.25 0 0021 15.75V9.456c0-1.081-.768-2.015-1.837-2.175a48.055 48.055 0 00-1.913-.247M6.34 18H5.25A2.25 2.25 0 013 15.75V9.456c0-1.081.768-2.015 1.837-2.175a48.041 48.041 0 011.913-.247m10.5 0a48.536 48.536 0 00-10.5 0m10.5 0V3.375c0-.621-.504-1.125-1.125-1.125h-8.25c-.621 0-1.125.504-1.125 1.125v3.659M18 10.5h.008v.008H18V10.5zm-3 0h.008v.008H15V10.5z" />
+                </svg>
+              </button>
+            </div>
+          </header>
+
+          <article class="content__calendar">
+            <aside class="calendar__sidebar">
+              <h3 class="calendar__sidebar__title">Agendamentos próximos</h3>
+              <p class="calendar__sidebar__label">
+                Veja os agendamentos próximos de hoje, do período da manhã
+              </p>
+
+              <ul class="calendar__event__list">
+                <div class="calendar__event">
+                  <div class="event__header">
+                    <div class="event__header__dot"></div>
+                    <span class="event__header__title">
+                      10:00-10:50 Sala de informática 1 / Maker
+                    </span>
+                  </div>
+                  <div class="event__main">
+                    <p class="event__title">Reservado à Brendon Gomes...</p>
+                    <p class="event__body">Período: 3ª...5ª aulas</p>
+                  </div>
+                </div>
+              </ul>
+            </aside>
+            <section class="calendar__widget">
+              <header class="calendar__header">
+                <div class="calendar__header__block">
+                  <div class="header__date-view__list">
+                    <input
+                      class="date-view__radio"
+                      type="radio"
+                      name="date-view"
+                      id="date-view-day"
+                      value="day"
+                      checked
+                    />
+                    <label class="date-view__item" for="date-view-day">
+                      <span>Dia</span>
+                    </label>
+                    <input
+                      class="date-view__radio"
+                      type="radio"
+                      name="date-view"
+                      value="week"
+                      id="date-view-week"
+                    />
+                    <label class="date-view__item" for="date-view-week">
+                      <span>Semana</span>
+                    </label>
+                    <input
+                      class="date-view__radio"
+                      type="radio"
+                      name="date-view"
+                      value="month"
+                      id="date-view-month"
+                    />
+                    <label class="date-view__item" for="date-view-month">
+                      <span>Mês</span>
+                    </label>
+                  </div>
+                  <div class="calendar__date-info">
+                    <div class="date-info__text">
+                      <span id="app-date"> 19:30 </span>
+                      <span> Etec de Sapopemba, São paulo </span>
+                    </div>
+                    <div class="date-info__icon">
+                      <!-- prettier-ignore -->
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8">
+                        <path fill-rule="evenodd" d="M9 4.5a.75.75 0 01.721.544l.813 2.846a3.75 3.75 0 002.576 2.576l2.846.813a.75.75 0 010 1.442l-2.846.813a3.75 3.75 0 00-2.576 2.576l-.813 2.846a.75.75 0 01-1.442 0l-.813-2.846a3.75 3.75 0 00-2.576-2.576l-2.846-.813a.75.75 0 010-1.442l2.846-.813A3.75 3.75 0 007.466 7.89l.813-2.846A.75.75 0 019 4.5zM18 1.5a.75.75 0 01.728.568l.258 1.036c.236.94.97 1.674 1.91 1.91l1.036.258a.75.75 0 010 1.456l-1.036.258c-.94.236-1.674.97-1.91 1.91l-.258 1.036a.75.75 0 01-1.456 0l-.258-1.036a2.625 2.625 0 00-1.91-1.91l-1.036-.258a.75.75 0 010-1.456l1.036-.258a2.625 2.625 0 001.91-1.91l.258-1.036A.75.75 0 0118 1.5zM16.5 15a.75.75 0 01.712.513l.394 1.183c.15.447.5.799.948.948l1.183.395a.75.75 0 010 1.422l-1.183.395c-.447.15-.799.5-.948.948l-.395 1.183a.75.75 0 01-1.422 0l-.395-1.183a1.5 1.5 0 00-.948-.948l-1.183-.395a.75.75 0 010-1.422l1.183-.395c.447-.15.799-.5.948-.948l.395-1.183A.75.75 0 0116.5 15z" clip-rule="evenodd" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div class="calendar__header__block">
+                  <p class="calendar__date" id="calendar-date">
+                    2 de Outubro, Quarta-feira
+                  </p>
+                  <div class="calendar__button-list">
+                    <button id="button-previous">
+                      <!-- prettier-ignore -->
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
+                        <path fill-rule="evenodd" d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z" clip-rule="evenodd" />
+                      </svg>
+                    </button>
+                    <button id="button-next">
+                      <!-- prettier-ignore -->
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
+                        <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </header>
+              <main class="calendar__main">
+                <div id="calendar" class="calendar-frame"></div>
+              </main>
+            </section>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="./calendar.js"></script>
+    <script type="module" src="../../scripts/behaviour.js"></script>
+  </body>
+</html>

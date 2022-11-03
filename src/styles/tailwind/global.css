@@ -1,0 +1,425 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  /* global */
+  .btn {
+    @apply rounded-md p-2 font-bold;
+  }
+  .label {
+    @apply mb-4 text-gray-600;
+  }
+  .solid {
+    @apply bg-violet-600 text-white hover:bg-violet-700 focus:ring-2 focus:ring-violet-300;
+  }
+  .input-group {
+    @apply flex flex-col gap-1 text-base text-gray-800;
+  }
+  .input-group--checkbox {
+    @apply flex;
+  }
+  .input-group__input {
+    @apply block w-full rounded-md border-gray-400 font-normal text-gray-500 focus:text-gray-700 focus:ring-violet-500;
+  }
+  .input-group__label {
+    @apply flex flex-col gap-1;
+  }
+  .input-group__label--checkbox {
+    @apply flex-row items-center gap-2 text-gray-600;
+  }
+  .input-group__error-message {
+    @apply hidden text-red-600;
+  }
+  input[type="checkbox"] {
+    @apply rounded-sm text-violet-500 focus:ring-violet-500;
+  }
+  .input-group__two-cols {
+    @apply flex gap-5;
+  }
+
+  /******************* LOGIN PAGE CSS ********************/
+  #login-page {
+    @apply flex h-screen w-screen flex-col items-center justify-center;
+    background-image: linear-gradient(to top, #cfd9df 0%, #ece2f0 100%);
+  }
+
+  .login__main {
+    @apply w-full max-w-[416px] rounded-md border border-gray-300 bg-gray-50 p-8 shadow ring-1 ring-inset ring-gray-300;
+  }
+
+  .login__logo {
+    @apply w-40;
+  }
+
+  .login__label {
+    @apply mt-2 text-base font-normal leading-tight text-gray-600;
+  }
+
+  .login__welcome-message {
+    @apply mt-8 mb-4 flex flex-col text-xl font-bold leading-none text-gray-800;
+  }
+  .login__welcome-message #username {
+    @apply truncate text-3xl;
+  }
+
+  .main__form {
+  }
+
+  .main__form__label {
+    @apply mb-2 block w-full text-sm font-semibold text-gray-700;
+  }
+
+  .main__form__input {
+    @apply mt-0.5 block w-full rounded-md border border-gray-400 py-1.5 px-3 text-base font-semibold text-gray-600 shadow outline-none ring-2 ring-gray-200 transition focus:scale-[1.01] focus:ring-violet-600 disabled:cursor-not-allowed disabled:opacity-70;
+  }
+
+  .main__form__button {
+    @apply mt-2 w-full rounded-md bg-violet-600 py-1.5 px-2 text-base text-white ring-violet-400 transition-colors hover:bg-violet-700 focus:ring-2;
+  }
+
+  .login__copyright-text {
+    @apply absolute bottom-2 right-2 text-gray-400;
+  }
+
+  #username.show-up-animation {
+    animation: showUp 0.7s ease forwards;
+  }
+
+  @keyframes showUp {
+    from {
+      opacity: 0;
+      transform: translateY(-1rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0rem);
+    }
+  }
+
+  /*********** LOADING CONTAINER ***********/
+  .loading--layer {
+    @apply fixed z-10 flex h-screen w-screen items-center justify-center bg-black/60;
+  }
+
+  .loading__container {
+    @apply z-10 flex min-w-[320px] flex-col items-center justify-center rounded-md border border-gray-300 bg-gray-100 p-8 shadow;
+  }
+
+  .loading__logo {
+    @apply w-32 select-none;
+  }
+
+  .loading__message {
+    @apply mt-2 font-bold text-gray-500;
+  }
+
+  .alert {
+    display: none;
+  }
+
+  .alert-container {
+    @apply mt-4 flex max-w-md rounded-md border border-red-300 bg-red-200 p-2 text-red-600 shadow-md;
+    animation: showUp 1s ease;
+  }
+
+  .alert__icon svg {
+    @apply mr-2 h-6 w-6;
+  }
+  .alert__title {
+    @apply font-semibold;
+  }
+
+  .alert__solutions-list {
+    @apply mt-1 list-inside list-disc;
+  }
+
+  .alert__button-restart {
+    @apply ml-auto mt-2 flex items-center gap-2 rounded-md border border-violet-300 border-t-violet-200 border-b-violet-400/90 bg-white px-3 py-1.5 font-semibold text-violet-600 shadow transition-colors hover:bg-violet-200;
+  }
+
+  /******************* APP LAYOUT ********************/
+  .app {
+    @apply flex h-screen w-screen;
+  }
+
+  .app__sidebar {
+    @apply /* duration-1000; */ /* transition-all; */ relative flex w-64
+    min-w-[16rem] flex-col border-r 
+    border-gray-200 py-4 shadow;
+  }
+
+  .app__sidebar--hidded {
+    @apply w-16 min-w-[4rem];
+  }
+
+  .app__sidebar--hidded .logo__img {
+    @apply m-0;
+  }
+
+  .app__sidebar--hidded .user__name {
+    @apply hidden;
+  }
+
+  .app__sidebar--hidded span {
+    animation: hidingText 0s ease forwards;
+  }
+
+  @keyframes hidingText {
+    0% {
+      opacity: 1;
+    }
+    80% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+      display: none;
+      visibility: hidden;
+      width: 0px;
+    }
+  }
+
+  .app__sidebar--hidded .navigation__link {
+    @apply gap-0;
+  }
+
+  .app__sidebar--hidded .navigation__link svg {
+    @apply h-5 w-5;
+  }
+
+  .app__sidebar--hidded .sidebar__label {
+    @apply hidden;
+  }
+
+  .app__sidebar--hidded .sidebar__toggle-button {
+    @apply -right-9 border border-violet-300 opacity-50 hover:opacity-100;
+  }
+  .app__sidebar--hidded .sidebar__toggle-button svg {
+    @apply rotate-180;
+  }
+
+  .app__sidebar--hidded .sidebar__user-wrapper {
+    @apply mx-auto;
+  }
+
+  .app__main {
+  }
+
+  /******************* APP SIDEBAR ********************/
+  .sidebar__brand {
+    @apply mx-2 mb-4 flex items-end text-xl;
+  }
+  .logo__img {
+    @apply ml-2 w-14;
+  }
+  .logo__title {
+    @apply font-poppins font-bold leading-none text-gray-800;
+  }
+  .logo__title span {
+    @apply text-violet-900;
+  }
+
+  .sidebar__section {
+    @apply m-4 flex flex-col items-center;
+  }
+
+  /* SIDEBAR NAVIGATION */
+  .sidebar__navigation {
+    @apply flex-1;
+  }
+
+  .sidebar__label {
+    @apply ml-2 mb-1 w-full text-xs font-bold text-gray-400;
+  }
+
+  .sidebar__separator {
+    @apply h-px w-full bg-gray-300;
+  }
+
+  .navigation__link {
+    @apply flex w-full items-center justify-center gap-1 rounded py-1.5 px-2.5 text-sm font-semibold text-gray-500/80 hover:bg-violet-500/25 hover:text-violet-600;
+  }
+
+  .app__sidebar span {
+    @apply flex-1;
+  }
+
+  .navigation__link ~ .navigation__link {
+    @apply mt-1;
+  }
+
+  .navigation__link svg {
+    @apply inline-block h-5 min-h-min w-5 min-w-min text-neutral-500/80;
+  }
+
+  .navigation__link:hover svg {
+    @apply text-violet-600;
+  }
+
+  .navigation__link--highlighted {
+    @apply text-gray-600;
+  }
+  .navigation__link--highlighted svg {
+    @apply text-gray-500;
+  }
+
+  /* SIDEBAR USER INFO */
+  .sidebar__user-wrapper {
+    @apply mx-4 my-2 flex items-center gap-3;
+  }
+
+  .user__avatar {
+    @apply h-10 w-10 rounded bg-violet-600 p-2 shadow-md;
+  }
+
+  .user__avatar__letters {
+    @apply font-semibold text-white;
+  }
+
+  /* SIDEBAR TOGGLE BUTTON */
+  .sidebar__toggle-button {
+    @apply absolute right-4 top-4 rotate-180 rounded-full border border-gray-300/30 bg-gray-200/80 p-1.5 text-gray-500 shadow transition-all duration-500 hover:bg-gray-300 hover:text-violet-600;
+  }
+  .sidebar__toggle-button svg {
+    @apply h-5 w-5;
+  }
+
+  /******************* APP MAIN CONTENT ********************/
+  .app__main {
+    @apply flex-1 bg-gradient-to-br from-violet-100/40 to-gray-100 p-8;
+  }
+
+  .app__main__content {
+    @apply flex h-full flex-col gap-6;
+  }
+
+  .content__header {
+    @apply flex items-end justify-between;
+  }
+
+  .content__header__title {
+    @apply flex items-center gap-4 font-poppins text-2xl font-bold leading-none text-gray-800;
+  }
+
+  .header__title__icon {
+    @apply rounded-md bg-white p-2;
+  }
+
+  .button-list__item {
+    @apply rounded bg-gray-200 p-2 text-gray-400 shadow-sm hover:bg-gray-300;
+  }
+
+  /*** CALENDAR PAGE ***/
+  .content__calendar {
+    @apply flex h-full w-full gap-4;
+  }
+
+  .calendar__widget {
+    @apply flex h-full w-full flex-col gap-2 rounded-md bg-white p-4 shadow-md;
+  }
+
+  .calendar-frame {
+    @apply h-full w-full;
+  }
+
+  /* CALENDAR SIDEBAR */
+  .calendar__sidebar {
+    @apply w-96;
+  }
+
+  .calendar__sidebar__title {
+    @apply font-poppins text-lg font-semibold text-gray-600;
+  }
+
+  .calendar__sidebar__label {
+    @apply mt-1 text-sm text-gray-500;
+  }
+
+  .calendar__event__list {
+    @apply mt-2;
+  }
+
+  .calendar__event {
+    @apply rounded-md border border-gray-200 bg-gray-100 py-2 px-3 shadow;
+  }
+
+  .event__header {
+    @apply flex items-center gap-2;
+  }
+
+  .event__header__dot {
+    @apply h-2 w-2 rounded-full bg-blue-500;
+  }
+
+  .event__header__title {
+    @apply text-sm font-semibold text-gray-500/80;
+  }
+
+  .event__title {
+    @apply mt-1 font-semibold text-gray-600;
+  }
+
+  .event__body {
+    @apply text-sm text-gray-400;
+  }
+
+  /* Calendar Header */
+  .calendar__header {
+    @apply flex w-full flex-col gap-2;
+  }
+  .header__date-view__list {
+    @apply flex gap-2 rounded-md border border-gray-300/60 bg-gray-200 p-1 shadow-sm;
+  }
+
+  .date-view__item {
+    @apply cursor-pointer rounded px-3 py-1 text-sm font-bold text-violet-500 transition-colors hover:bg-gray-400/50;
+  }
+  .date-view__radio {
+    @apply invisible hidden;
+  }
+
+  .date-view__radio:checked + label.date-view__item {
+    @apply bg-violet-500 text-white shadow-md;
+  }
+
+  .calendar__date-info {
+    @apply flex items-center gap-1;
+  }
+  .date-info__icon {
+    @apply text-violet-500;
+  }
+
+  .date-info__text span {
+    @apply block text-right font-poppins font-semibold leading-none text-gray-400 first:text-xl first:text-gray-600;
+  }
+
+  .calendar__header__block {
+    @apply flex w-full items-end justify-between;
+  }
+
+  .calendar__date {
+    @apply text-lg font-semibold text-gray-700;
+  }
+  .calendar__button-list {
+    @apply flex gap-2;
+  }
+  .calendar__button-list button {
+    @apply rounded-md border border-gray-300 bg-gray-50 p-1 text-violet-600 shadow transition-colors hover:bg-gray-300 hover:text-violet-700;
+  }
+  .calendar__button-list button svg {
+    @apply block;
+  }
+
+  .calendar__main {
+    @apply h-full;
+  }
+  .month-date-today {
+    @apply bg-violet-500;
+  }
+
+  /*** SCHEDULE KEY PAGE ***/
+  .schedule-key-form {
+    @apply flex max-w-lg flex-col gap-4;
+  }
+}

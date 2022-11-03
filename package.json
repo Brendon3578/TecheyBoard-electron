@@ -4,7 +4,8 @@
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "tailwind": "npx tailwindcss -i ./src/styles/tailwind/global.css -o ./src/styles/tailwind/tailwind.css --watch"
   },
   "repository": "",
   "keywords": [
@@ -17,11 +18,18 @@
   "author": "Brendon Gomes",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^20.0.3"
+    "@tailwindcss/forms": "^0.5.3",
+    "autoprefixer": "^10.4.12",
+    "electron": "^20.1.3",
+    "postcss": "^8.4.18",
+    "prettier": "^2.7.1",
+    "prettier-plugin-tailwindcss": "^0.1.13",
+    "tailwindcss": "^3.2.0"
   },
   "dependencies": {
     "@toast-ui/calendar": "^2.1.3",
     "electron-reload": "^2.0.0-alpha.1",
+    "mysql": "^2.18.1",
     "tippy.js": "^6.3.7",
     "toastify-js": "^1.12.0",
     "yarn": "^1.22.19"

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="../../styles/fonts.css" />
+
+    <link rel="stylesheet" href="../../styles/tailwind/tailwind.css" />
+
+    <link rel="stylesheet" href="../../styles/toastify.css" />
+
+    <title>Home</title>
+  </head>
+  <body id="login-page">
+    <main class="login__main">
+      <img src="../../assets/logo.png" alt="Arduteam" class="login__logo" />
+
+      <div class="login__welcome-message">
+        <span> Bem-vindo!</span>
+        <span id="username">Professor(a)</span>
+
+        <p class="login__label">
+          Digite sua matricula e senha para acessar o sistema
+        </p>
+      </div>
+      <form class="main__form" id="login-form">
+        <label class="main__form__label">
+          <span> Matrícula </span>
+          <input
+            type="text"
+            placeholder="Digite sua Matrícula"
+            name="registration"
+            class="main__form__input"
+            id="login-registration"
+            onfocusout="showUsernameFadeInEffect()"
+            maxlength="5"
+            required
+          />
+        </label>
+
+        <label class="main__form__label">
+          <span> Senha </span>
+          <input
+            type="password"
+            placeholder="Digite sua senha"
+            name="password"
+            class="main__form__input"
+            id="login-password"
+            required
+            disabled
+          />
+        </label>
+
+        <button class="btn solid main__form__button">Entrar</button>
+      </form>
+    </main>
+
+    <div class="loading--layer" id="loading">
+      <div class="loading__container">
+        <img
+          src="../../assets/logo-icon.png"
+          alt="Arduteam"
+          class="loading__logo"
+        />
+        <p class="loading__message" id="loading__message" role="alert">
+          Carregando Banco de Dados...
+        </p>
+
+        <div class="alert" id="alert">
+          <div class="alert-container">
+            <div class="alert__icon">
+              <!-- prettier-ignore -->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z" clip-rule="evenodd" />
+              </svg>
+            </div>
+            <div class="alert-description">
+              <span class="alert__title">
+                O Banco de Dados não foi conectado! Há 2 possíveis causas para o
+                erro apresentado:
+              </span>
+              <ul class="alert__solutions-list">
+                <li>O Banco de Dados não foi criado corretamente</li>
+                <li>O Servidor está fora do ar</li>
+              </ul>
+            </div>
+          </div>
+
+          <button class="alert__button-restart" onclick="restartApplication()">
+            <!-- prettier-ignore -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                <path fill-rule="evenodd" d="M4.755 10.059a7.5 7.5 0 0112.548-3.364l1.903 1.903h-3.183a.75.75 0 100 1.5h4.992a.75.75 0 00.75-.75V4.356a.75.75 0 00-1.5 0v3.18l-1.9-1.9A9 9 0 003.306 9.67a.75.75 0 101.45.388zm15.408 3.352a.75.75 0 00-.919.53 7.5 7.5 0 01-12.548 3.364l-1.902-1.903h3.183a.75.75 0 000-1.5H2.984a.75.75 0 00-.75.75v4.992a.75.75 0 001.5 0v-3.18l1.9 1.9a9 9 0 0015.059-4.035.75.75 0 00-.53-.918z" clip-rule="evenodd" />
+              </svg>
+            Reiniciar Tela
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <span class="login__copyright-text"> &copy; Arduteam 2022 </span>
+
+    <script type="module" src="./index.js"></script>
+  </body>
+</html>
