@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="../../../styles/fonts.css" />
+
+    <link rel="stylesheet" href="../../../styles/tailwind/tailwind.css" />
+    <!-- CALENDAR (TOAST UI) CSS -->
+    <link rel="stylesheet" href="../../../styles/toastui-calendar.min.css" />
+
+    <link rel="stylesheet" href="../../../styles/toastify.css" />
+
+    <title>Techeyboard</title>
+  </head>
+  <body>
+    <div class="app" id="app">
+      <aside
+        class="app__sidebar"
+        id="sidebar"
+        aria-label="Sidebar - Barra Lateral"
+      ></aside>
+
+      <main class="app__main">
+        <section class="app__main__content">
+          <header class="content__header" id="content-header"></header>
+
+          <article class="content__calendar">
+            <section class="calendar__widget">
+              <header class="calendar__header">
+                <div class="calendar__header__block">
+                  <div class="header__date-view__list">
+                    <input
+                      class="date-view__radio"
+                      type="radio"
+                      name="date-view"
+                      id="date-view-day"
+                      value="day"
+                      checked
+                    />
+                    <label class="date-view__item" for="date-view-day">
+                      <span>Dia</span>
+                    </label>
+                    <input
+                      class="date-view__radio"
+                      type="radio"
+                      name="date-view"
+                      value="week"
+                      id="date-view-week"
+                    />
+                    <label class="date-view__item" for="date-view-week">
+                      <span>Semana</span>
+                    </label>
+                    <input
+                      class="date-view__radio"
+                      type="radio"
+                      name="date-view"
+                      value="month"
+                      id="date-view-month"
+                    />
+                    <label class="date-view__item" for="date-view-month">
+                      <span>Mês</span>
+                    </label>
+                  </div>
+                  <div class="calendar__date-info">
+                    <div class="date-info__text">
+                      <span id="app-date"> 19:30 </span>
+                      <span> Etec de Sapopemba, São paulo </span>
+                    </div>
+                    <div class="date-info__icon">
+                      <!-- prettier-ignore -->
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8">
+                        <path fill-rule="evenodd" d="M9 4.5a.75.75 0 01.721.544l.813 2.846a3.75 3.75 0 002.576 2.576l2.846.813a.75.75 0 010 1.442l-2.846.813a3.75 3.75 0 00-2.576 2.576l-.813 2.846a.75.75 0 01-1.442 0l-.813-2.846a3.75 3.75 0 00-2.576-2.576l-2.846-.813a.75.75 0 010-1.442l2.846-.813A3.75 3.75 0 007.466 7.89l.813-2.846A.75.75 0 019 4.5zM18 1.5a.75.75 0 01.728.568l.258 1.036c.236.94.97 1.674 1.91 1.91l1.036.258a.75.75 0 010 1.456l-1.036.258c-.94.236-1.674.97-1.91 1.91l-.258 1.036a.75.75 0 01-1.456 0l-.258-1.036a2.625 2.625 0 00-1.91-1.91l-1.036-.258a.75.75 0 010-1.456l1.036-.258a2.625 2.625 0 001.91-1.91l.258-1.036A.75.75 0 0118 1.5zM16.5 15a.75.75 0 01.712.513l.394 1.183c.15.447.5.799.948.948l1.183.395a.75.75 0 010 1.422l-1.183.395c-.447.15-.799.5-.948.948l-.395 1.183a.75.75 0 01-1.422 0l-.395-1.183a1.5 1.5 0 00-.948-.948l-1.183-.395a.75.75 0 010-1.422l1.183-.395c.447-.15.799-.5.948-.948l.395-1.183A.75.75 0 0116.5 15z" clip-rule="evenodd" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div class="calendar__header__block">
+                  <p class="calendar__date" id="calendar-date">
+                    2 de Outubro, Quarta-feira
+                  </p>
+                  <div class="calendar__button-list">
+                    <button id="button-previous">
+                      <!-- prettier-ignore -->
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
+                        <path fill-rule="evenodd" d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z" clip-rule="evenodd" />
+                      </svg>
+                    </button>
+                    <button id="button-next">
+                      <!-- prettier-ignore -->
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
+                        <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </header>
+              <main class="calendar__main">
+                <div id="calendar" class="calendar-frame"></div>
+              </main>
+            </section>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="./calendar-control.js"></script>
+  </body>
+</html>

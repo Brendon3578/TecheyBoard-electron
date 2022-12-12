@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -11,7 +11,7 @@
 
     <link rel="stylesheet" href="../../styles/toastify.css" />
 
-    <title>Home</title>
+    <title>Login - Techeyboard</title>
   </head>
   <body id="login-page">
     <main class="login__main">
@@ -35,12 +35,11 @@
             class="main__form__input"
             id="login-registration"
             onfocusout="showUsernameFadeInEffect()"
-            maxlength="5"
             required
           />
         </label>
 
-        <label class="main__form__label">
+        <div class="main__form__label input-group--password">
           <span> Senha </span>
           <input
             type="password"
@@ -51,9 +50,20 @@
             required
             disabled
           />
-        </label>
 
-        <button class="btn solid main__form__button">Entrar</button>
+          <div
+            class="input-group--password__icon"
+            data-password-id="login-password"
+          >
+            <!-- prettier-ignore -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+              <path d="M10 12.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" />
+              <path fill-rule="evenodd" d="M.664 10.59a1.651 1.651 0 010-1.186A10.004 10.004 0 0110 3c4.257 0 7.893 2.66 9.336 6.41.147.381.146.804 0 1.186A10.004 10.004 0 0110 17c-4.257 0-7.893-2.66-9.336-6.41zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" />
+            </svg>
+          </div>
+        </div>
+
+        <button class="btn--primary main__form__button btn">Entrar</button>
       </form>
     </main>
 

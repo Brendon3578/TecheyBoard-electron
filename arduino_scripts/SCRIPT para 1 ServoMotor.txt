@@ -1,0 +1,195 @@
+
+#include <Servo.h>
+
+// instanciação doss Servos Motores
+Servo servo1;
+
+
+// variavel para armzenar a quantidade de Servo motores
+// que será utilizado no sistema
+const int qs = 1;
+
+// se for mudar a variavel anterior: mude essas também
+// fazendo todas as alterações necessárias no sistema.
+int chavesDisponiveis[qs] = {1};
+int chavesRetiradas[qs] = {0};
+// como funciona a lógica desses arrays:
+// como não é possível retirar valores dentro de um array
+// então apenas transformamos o valor em 0: como se fossse
+// um valor false: para indicar que está vazio.
+
+// inteiro de comeco para que quando a funcao de loop ativar
+// novamente, os servo motores não ficar no angulo 0
+int comeco = 0;
+
+void setup() {
+  // Inicializando os servo motores que estão nos pinos
+  servo1.attach(4);
+
+
+  
+  // Inicializando a comunicação serial via Serial Monitor
+  Serial.begin(9600);
+}
+
+void loop(){
+  
+  // Inicializar os servo motores (colocar eles em angulo 0)
+  iniciarServosSemAngulo();
+  
+  // Função de mostrar mensagens de escolha
+  exibirMensagemDeEscolhas();
+  
+  // Gambiarra pra fazer o programa não continuar até haver
+  // uma resposta do usuário
+  while(Serial.available() == 0) {
+    delay(2000);
+  }
+  
+  // ler a informação que o usuário digitou no terminal (input)
+  String inputTerminal = Serial.readString();
+
+  
+  // se Dentro do que o usuário escreveu estiver a string
+  // "retirar"
+  if (inputTerminal.indexOf("retirar") == 0) {
+    Serial.println("\nRETIRANDO CHAVE...");
+    
+    delay(1000);
+
+    //for:1,2,3,4
+    for (int i = 1; i <= qs; i++) {
+      // verificar se no input tem o iterador I (1,2,3,4)
+      if (inputTerminal.indexOf(String(i)) > 0) {
+      
+        // verificar se a chave no array está disponível
+        if (chavesDisponiveis[i-1] == 0) {
+          // chave já retirada
+          Serial.println("Chave ja retirada");
+        } else {
+          liberarGancho(i);
+        }
+      }
+    }
+  // se não Dentro do que o usuário escreveu estiver a string
+  // "retirar"
+  } else if (inputTerminal.indexOf("devolver") == 0) {
+    Serial.println("\nDEVOLVENDO CHAVE...");
+    delay(1000);
+    
+    // for: 1,2,3,4
+    for (int i = 1; i <= qs; i++) {
+      
+      // verificar se no input tem o iterador I (1,2,3,4)
+      if (inputTerminal.indexOf(String(i)) > 0) {
+      
+        // verificar se a chave no array está disponível
+        if (chavesRetiradas[i-1] == 0) {
+          // chave já retirada
+          Serial.println("Chave ainda nao liberada");
+        } else {
+          prenderGancho(i);
+        }
+      }
+
+    }
+  } else {
+  	Serial.println("\nEscreva uma acao valida!!\n\n");
+  }
+}
+
+
+// quando 'startar' a aplicação: todos os servo motores tem que estar
+// no angulo 0
+void iniciarServosSemAngulo() {
+  // é necessário para essa ação não se repetir na função de loop
+  if (comeco == 0) {
+    servo1.write(0);
+    
+    comeco = 1;
+  }
+}
+
+
+// Função de mostrar a mensasgem inicial e quais
+// chaves foram retiradas e quais estão disponiveis
+void exibirMensagemDeEscolhas() {
+  Serial.println("\n\n\n\n\n\n-@-----------------------------------------------------@-");
+  Serial.println("Escolha uma acao: ");
+  Serial.println("Retirar Chave  OU  Devolver Chave\n");
+  Serial.println("Para retirar uma chave escreva: 'retirar chave 1'");
+  Serial.println("Para devolver uma chave escreva 'devolver chave 1'");
+  
+  // Invocação das funções para mostrar as chavess
+  exibirChavesDisponiveis();
+  exibirChavesRetiradas();
+}
+
+// mostrar as chaves disponiveis
+void exibirChavesDisponiveis() {
+  Serial.print("\nCHAVES DISPONIVEIS PARA RETIRAR: ");
+  
+  // laço de iteração para percorrer o array de chaves disponiveis
+  for (int i = 1; i <= qs; i++) {
+    if (chavesDisponiveis[i - 1] != 0) {
+      if (i != 1) {Serial.print(" | ");}
+      Serial.print("Chave ");
+      Serial.print(i);
+    }
+  }
+}
+
+// mostrar as chaves retiradas
+void exibirChavesRetiradas() {
+  Serial.print("\nCHAVES DISPONIVEIS PARA DEVOLVER: ");
+  
+  // laço de iteração para percorrer o array de chaves retiradas
+  for (int i = 1; i <= qs; i++) {
+    if (chavesRetiradas[i - 1] != 0) {
+      if (i != 1) {Serial.print(" | ");}
+      Serial.print("Chave ");
+      Serial.print(i);
+    }
+  }
+}
+
+// irá receber um valor que é 1,2,3,4
+void liberarGancho(int chaveGancho) {
+  
+  switch (chaveGancho) {
+  	case 1:
+      // irá fazer o servo motor 1 rotacionar 90 graus anti-horario
+      servo1.write(90);
+    break;
+    // se for adcioanr mais pinos, é necessário mudar aqui também
+    default:
+      Serial.println("Erro Chave não encontrada!");
+    break;
+  } 
+  delay(2000);
+
+  // esse "chaveGancho - 1" é necessário para percorrer o valor
+  // no array, os indices do array começam no 0 e não no 1
+  chavesDisponiveis[chaveGancho - 1] = 0;
+  chavesRetiradas[chaveGancho - 1] = chaveGancho;
+}
+
+void prenderGancho(int chaveGancho) {
+  switch (chaveGancho) {
+  	case 1:
+      servo1.write(0);
+    break;
+    default:
+      Serial.println("Erro Chave não retirada ainda!");
+    break;
+  } 
+  
+  delay(1000);
+  
+  // colocar a chave no array de chaves disponiveis
+  chavesDisponiveis[chaveGancho - 1] = chaveGancho;
+  
+  
+  // tirar a chave do array de chaves retiradas
+  chavesRetiradas[chaveGancho - 1] = 0;
+}

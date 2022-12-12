@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="../../../styles/fonts.css" />
+
+    <link rel="stylesheet" href="../../../styles/tailwind/tailwind.css" />
+    <!-- CALENDAR (TOAST UI) CSS -->
+    <link rel="stylesheet" href="../../../styles/toastui-calendar.min.css" />
+
+    <link rel="stylesheet" href="../../../styles/toastify.css" />
+
+    <title>Techeyboard</title>
+  </head>
+  <body>
+    <div class="app">
+      <aside
+        class="app__sidebar"
+        id="sidebar"
+        aria-label="Sidebar - Barra Lateral"
+      ></aside>
+
+      <main class="app__main">
+        <section class="app__main__content">
+          <header class="content__header" id="content-header"></header>
+
+          <main class="content__schedule-key">
+            <p class="label">
+              Agende sua próxima aula, para poder retirar a chave no horário
+              certo.
+            </p>
+            <form id="schedule-key" class="schedule-key-form">
+              <div class="input-group">
+                <span> Período do agendamento </span>
+                <div class="input-group__container">
+                  <label class="input-group__label input-group__label--row">
+                    <input type="radio" name="period" value="morning" checked />
+                    <span>Manhã</span>
+                  </label>
+                  <label class="input-group__label input-group__label--row">
+                    <input type="radio" name="period" value="afternoon" />
+                    <span>Tarde</span>
+                  </label>
+                  <label class="input-group__label input-group__label--row">
+                    <input type="radio" name="period" value="night" />
+                    <span>Noite</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="input-group">
+                <label class="input-group__label">
+                  <span> Nome da Sala </span>
+                  <select
+                    name="room"
+                    required
+                    class="input-group__input"
+                    id="form-select-room"
+                  >
+                    <option value="">Selecione uma sala</option>
+                  </select>
+                </label>
+              </div>
+
+              <div class="input-group hidden" id="showable-weekday-input">
+                <span class="input-group__label"> Dia da semana </span>
+                <div class="select-primary">
+                  <select name="weekday" required class="input-group__input">
+                    <option value="-1">Selecione um dia da semana</option>
+                    <option value="0">Todas os Domingos</option>
+                    <option value="1">Todas as Segundas</option>
+                    <option value="2">Todas as Terças</option>
+                    <option value="3">Todas as Quartas</option>
+                    <option value="4">Todas as Quintas</option>
+                    <option value="5">Todas as Sextas</option>
+                    <option value="6">Todas os Sábados</option>
+                  </select>
+                  <div class="select-arrow"></div>
+                </div>
+              </div>
+
+              <div class="input-group" id="showable-date-input">
+                <label class="input-group__label" id="date-input">
+                  <span>Data reservada</span>
+                  <div class="datepicker" data-mdb-toggle-button="false">
+                    <input
+                      type="text"
+                      name="date"
+                      class="input-group__input"
+                      placeholder="Selecione uma data"
+                      data-mdb-toggle="datepicker"
+                    />
+                  </div>
+                </label>
+              </div>
+
+              <div class="input-group">
+                <span class="input-group__label">Horário das aulas</span>
+                <div class="input-group__two-cols">
+                  <select
+                    name="first-lesson"
+                    required
+                    class="input-group__input"
+                    id="first-lesson-select"
+                  >
+                    <!-- <option value="">Aula inicial</option> -->
+                    <!-- <option value="f-lesson-1" selected>
+                      das 7:10 - 1ª Aula
+                    </option>
+                    <option value="f-lesson-2">das 8:00 - 2ª Aula</option>
+                    <option value="f-lesson-3">das 8:50 - 3ª Aula</option>
+                    <option value="f-lesson-4">das 10:00 - 4ª Aula</option>
+                    <option value="f-lesson-5">das 10:50 - 5ª Aula</option>
+                    <option value="f-lesson-6">das 11:40 - 6ª Aula</option> -->
+                  </select>
+
+                  <select
+                    name="last-lesson"
+                    required
+                    required
+                    class="input-group__input"
+                    id="last-lesson-select"
+                  >
+                    <!-- <option value="">Término da aula</option>
+                    <option value="l-lesson-1">até 8:00</option>
+                    <option value="l-lesson-2">até 8:50</option>
+                    <option value="l-lesson-3">até 9:40</option>
+                    <option value="l-lesson-4">até 10:50</option>
+                    <option value="l-lesson-5" selected>até 11:40</option>
+                    <option value="l-lesson-6">até 12:30</option> -->
+                  </select>
+                </div>
+                <!-- <span class="input-group__error-message hidden">
+                  Insira um horário de aulas válida!
+                </span> -->
+              </div>
+
+              <div class="input-group">
+                <label class="input-group__label input-group__label--row">
+                  <input
+                    name="schedule-for-next-4-weeks"
+                    type="checkbox"
+                    id="next-4-weeks-checkbox"
+                  />
+                  <span> Marcar para as próximas 4 semanas (1 mês) </span>
+                </label>
+              </div>
+
+              <button class="btn--primary btn">Agendar</button>
+            </form>
+          </main>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="./schedule-key.js"></script>
+  </body>
+</html>

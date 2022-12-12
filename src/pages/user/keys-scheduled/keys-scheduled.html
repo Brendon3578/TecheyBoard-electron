@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="../../../styles/fonts.css" />
+
+    <link rel="stylesheet" href="../../../styles/tailwind/tailwind.css" />
+    <!-- CALENDAR (TOAST UI) CSS -->
+    <link rel="stylesheet" href="../../../styles/toastui-calendar.min.css" />
+
+    <link rel="stylesheet" href="../../../styles/toastify.css" />
+
+    <title>Techeyboard</title>
+  </head>
+  <body>
+    <div class="app">
+      <aside
+        class="app__sidebar"
+        id="sidebar"
+        aria-label="Sidebar - Barra Lateral"
+      ></aside>
+
+      <main class="app__main">
+        <section class="app__main__content">
+          <header class="content__header" id="content-header"></header>
+
+          <main class="content__keys-scheduled">
+            <p class="label">Veja as salas que foram reservadas por você</p>
+
+            <div class="custom-table">
+              <table class="table__container">
+                <!-- <caption class="table__caption">
+                  Salas Reservadas
+                </caption> -->
+                <thead class="table__head">
+                  <tr class="table__head__row">
+                    <th scope="col"></th>
+                    <th scope="col" class="table__head__cell">Nome da Sala</th>
+                    <th scope="col" class="table__head__cell">Status</th>
+                    <th scope="col" class="table__head__cell">
+                      Horário de Aula
+                    </th>
+                    <th scope="col" class="table__head__cell">Aulas</th>
+                  </tr>
+                </thead>
+                <tbody class="table__body" id="keys-scheduled-tbody"></tbody>
+              </table>
+
+              <div class="table__footer">
+                <button
+                  onclick="scheduledKeyAction('return')"
+                  id="btn-return"
+                  disabled
+                  class="btn--primary btn"
+                  data-bs-toggle="modal"
+                  data-bs-target="#scheduleModal"
+                >
+                  Devolver
+                </button>
+                <button
+                  onclick="scheduledKeyAction('withdraw')"
+                  id="btn-withdraw"
+                  disabled
+                  class="btn--primary btn"
+                  data-bs-toggle="modal"
+                  data-bs-target="#scheduleModal"
+                >
+                  Retirar
+                </button>
+                <button
+                  onclick="scheduledKeyAction('remove')"
+                  id="btn-remove"
+                  disabled
+                  class="btn--secondary btn"
+                  data-bs-toggle="modal"
+                  data-bs-target="#scheduleModal"
+                >
+                  Excluir
+                </button>
+              </div>
+            </div>
+          </main>
+        </section>
+      </main>
+    </div>
+
+    <div
+      class="custom__modal modal fade"
+      id="scheduleModal"
+      tabindex="-1"
+      aria-labelledby="modalLabel"
+      aria-hidden="true"
+    >
+      <div class="custom__modal__dialog modal-dialog">
+        <div class="custom__modal__content modal-content">
+          <div class="modal__header modal-header">
+            <h5 class="modal__header__title" id="modalLabel">Tem certeza?</h5>
+            <button
+              type="button"
+              class="btn-close box-content h-4 w-4 rounded-none border-none p-1 text-black opacity-50 hover:text-black hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
+              data-bs-dismiss="modal"
+              aria-label="Fechar"
+            ></button>
+          </div>
+          <div class="modal__body modal-body">
+            <!-- prettier-ignore -->
+            <svg class="modal__body__icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
+            </svg>
+
+            <h5 class="modal__body__title" id="modal-body-title">
+              actionTitle
+            </h5>
+            <p class="modal__body__label" id="modal-body-label">
+              Tem certeza que você deseja action ?
+            </p>
+          </div>
+          <div class="modal__footer modal-footer">
+            <button
+              type="button"
+              class="btn--secondary btn"
+              data-bs-dismiss="modal"
+            >
+              Cancelar
+            </button>
+            <button
+              type="button"
+              class="btn--primary btn"
+              id="modal-btn-label"
+              data-bs-dismiss="modal"
+            >
+              Sim, action
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="./keys-scheduled.js"></script>
+  </body>
+</html>

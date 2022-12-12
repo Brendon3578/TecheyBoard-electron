@@ -1,13 +1,15 @@
 /**
+ * @typedef { 'MORNING' | 'AFTERNOON' | 'NIGHT' } periodType
+ *
  * @typedef {{
  *   id: number,
- *   status: 'AGENDADO' | 'USANDO' | 'DEVOLVIDO',
+ *   status: 'SCHEDULED' | 'USING' | 'RETURNED',
  *   teacher: {
  *     name: string,
  *     id: string,
- *     rm: string
+ *     registration: string
  *   },
- *   lab: {
+ *   room: {
  *     id: number,
  *     name: string,
  *   },
@@ -15,20 +17,40 @@
  *     keyTakenHour: Date,
  *     keyReturnedHour: Date,
  *     classesAmount: number[],
+ *     period: periodType,
  *   }
- * }} scheduledKey
+ * }} scheduling
  *
  * @typedef {{
  *  id:number,
- *  labName: string,
- *  status: 'NORMAL' | 'MANUNTENCAO'
- * }} lab
+ *  roomName: string,
+ *  status: 'NORMAL' | 'MAINTENANCE'
+ * }} room
  *
  * @typedef {{
  * id: string;
- * RM: string;
+ * registration: string;
  * name: string;
+ * email: string;
+ * contact: string;
+ * role: string;
  * }} user
+ */
+
+/**
+ * @typedef {{
+ * label: string,
+ * titleAttribute: string,
+ * hrefName?: string,
+ * iconEl: string,
+ * idAttribute?: string;
+ * }} sidebarPageType
+ *
+ *
+ * @typedef {{
+ *  label:number,
+ *  pages: sidebarPageType[]
+ * }} sidebarSectionType
  */
 
 // é necessário exportar alguma coisa para os tipos exportados funcionarem

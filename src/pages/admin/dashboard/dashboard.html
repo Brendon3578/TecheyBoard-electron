@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="../../../styles/fonts.css" />
+
+    <link rel="stylesheet" href="../../../styles/tailwind/tailwind.css" />
+
+    <!-- CALENDAR (TOAST UI) CSS -->
+    <link rel="stylesheet" href="../../../styles/toastui-calendar.min.css" />
+
+    <title>Techeyboard</title>
+  </head>
+  <body>
+    <div class="app">
+      <aside
+        class="app__sidebar"
+        id="sidebar"
+        aria-label="Sidebar - Barra Lateral"
+      ></aside>
+
+      <main class="app__main">
+        <section class="app__main__content">
+          <header class="content__header" id="content-header"></header>
+
+          <main class="content__dashboard">
+            <p class="label">Gerencie o Techeyboard</p>
+          </main>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="./dashboard.js"></script>
+    <script type="module" src="../../../scripts/behaviour.js"></script>
+  </body>
+</html>

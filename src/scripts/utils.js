@@ -10,12 +10,13 @@ const Toastify = require("toastify-js");
 function showToastMessage(message, duration = 8000, type = "info") {
   const toastMessageColorList = {
     info: "linear-gradient(to right, #6b21a8, #7e22ce)",
-    alert: "linear-gradient(to right, #991b1b, #b91c1c)",
+    alert: "linear-gradient(to right, #b91c1c, #dc2626)",
   };
 
   Toastify({
     text: message,
     duration: duration,
+    close: true,
     style: {
       background: toastMessageColorList[type],
     },
@@ -42,7 +43,7 @@ const monthList = [
  *
  * @param {Date} date A data que será formatada.
  *
- * @param {'YYYY-MM-DD' | 'HH:MM' | 'DD/MM/YYYY -long' | 'DD/MM/YYYY' | 'YYYY-MM-DD HH:MM:SS' | 'MM/YY --long'} formatType O tipo de formatação de data válido.
+ * @param {'YYYY-MM-DD' | 'HH:MM' | 'HH:MM -withoutZero' | 'DD/MM/YYYY -long' | 'DD/MM/YYYY' | 'YYYY-MM-DD HH:MM:SS' | 'MM/YY --long' | 'DD/MM'} formatType O tipo de formatação de data válido.
  *
  * As formatações possíveis:
  * - "YYYY-MM-DD": 2022/09/24,
@@ -50,6 +51,7 @@ const monthList = [
  * - "DD/MM/YYYY" -long": 30 de ago. de 2022,
  * - "YYYY-MM-DD HH:MM:SS": 2022/06/10 21:48:30
  * - "MM/YY --long": Novembro de 2022
+ * - "DD/MM": 05 de Nov.
  *
  * @author Brendon Gomes
  */
@@ -59,6 +61,8 @@ function formatDate(date, formatType) {
   let year = date.getFullYear();
 
   let hour = date.getHours().toString().padStart(2, "0");
+  let hourWithoutZero = date.getHours();
+
   let minute = date.getMinutes().toString().padStart(2, "0");
   let second = date.getSeconds().toString().padStart(2, "0");
 
@@ -67,6 +71,8 @@ function formatDate(date, formatType) {
       return `${year}-${month}-${day}`;
     case "HH:MM":
       return `${hour}:${minute}`;
+    case "HH:MM -withoutZero":
+      return `${hourWithoutZero}:${minute}`;
     case "DD/MM/YYYY -long":
       return new Intl.DateTimeFormat("pt-BR", {
         day: "numeric",
@@ -77,8 +83,10 @@ function formatDate(date, formatType) {
       return `${day}/${month}/${year}`;
     case "YYYY-MM-DD HH:MM:SS":
       return `${year}-${month}-${day} ${hour}:${minute}:${second}`;
+    case "DD/MM":
+      return `${day} de ${monthList[parseInt(month - 1)].slice(0, 3)}.`;
     case "MM/YY --long":
-      return `${monthList[parseInt(month)]} de ${year}`;
+      return `${monthList[parseInt(month - 1)]} de ${year}`;
     default:
       throw "Erro, insira um tipo de formatação de data válido";
   }
@@ -111,11 +119,22 @@ function getNextDayOfTheWeek(date = new Date(), dayWeek) {
  * @param {string} string A string do qual será extraído o último carácter
  * @author Brendon Gomes
  */
-const returnLastCharOfAString = (string) => string.substring(string.length - 1);
+const getLastCharOfAString = (string) => string.substring(string.length - 1);
+
+/**
+ * @param {string} string A String no qual a primeira letra estará em uppercase (letra maiúscula)
+ * @returns  String com a primeira letra em uppercase
+ */
+const capitalizeString = (string) =>
+  string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+
+const isDateValid = (date) => date instanceof Date && !isNaN(date);
 
 export {
   showToastMessage,
   formatDate,
-  returnLastCharOfAString,
+  getLastCharOfAString,
+  capitalizeString,
   getNextDayOfTheWeek,
+  isDateValid,
 };
