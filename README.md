@@ -4,16 +4,15 @@
     <img src="./src/assets/system-logo.png" alt="Arduteam" width="250px">
 </h1>
 
-
 # Techeyboard
 
 Esse é o **CÓDIGO FONTE** do projeto TecheyBoard feito pela equipe **ARDUTEAM**, o projeto consiste em um claviculário robotizado, feito em Arduino, para uma maior organização administrativa da **Etec de Sapopemba**. Cabe destacar que o projeto, consiste em duas partes: o sistema digital, onde ocorre o agendamento e a organização de chaves, e o sistema físico, na qual se consiste no Arduino, que irá realizar a parte mecânica do projeto. Abaixo estará o Código Fonte do sistema digital
 
 
-### Código das Interfaces (Telas)
+### Código das Interfaces Visuais (Telas)
 
 <details>
-  <summary>Páginas de Usuário</summary>
+  <summary>Telas de Usuário</summary>
 
   **[Pasta dos Código](./src/pages/user/)**
   - [Calendário](./src/pages/user/calendar/)
@@ -23,7 +22,7 @@ Esse é o **CÓDIGO FONTE** do projeto TecheyBoard feito pela equipe **ARDUTEAM*
 </details>
 
 <details>
-  <summary>Páginas de Administrador</summary>
+  <summary>Telas de Administrador</summary>
 
   **[Pasta dos Código](./src/pages/admin/)**
   - [Painel de Controle](./src/pages/admin/dashboard/)
@@ -57,9 +56,3 @@ Após isso, entre com um Prompt de Comando (CMD), dentro da pasta que está inst
   # Irá inicializar o sistema em sua máquina
   npm start
 ```
-
----
-
-<h3 align="center">
-    Feito com ☕ por <a href="https://github.com/Brendon3578"> Brendon Gomes</a>
-</h3>
