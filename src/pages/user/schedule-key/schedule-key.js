@@ -1,5 +1,3 @@
-require("tw-elements");
-
 /**
  * @typedef {import('../../types/type.js').room } room
  * @typedef {import('../../types/type.js').scheduling} scheduling
@@ -56,7 +54,7 @@ Sala.findAll()
     const roomSelectEl = document.getElementById("form-select-room");
 
     rooms.forEach((room) => {
-      if (room.status != "MANUNTENCAO")
+      if (room.status != "MAINTENANCE")
         roomSelectEl.innerHTML += `<option value="${room.id}">${room.roomName}</option>`;
     });
   });

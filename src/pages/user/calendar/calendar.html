@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <link
+      rel="stylesheet"
+      href="../../../styles/tw-elements/tw-elements.min.css"
+    />
+
     <link rel="stylesheet" href="../../../styles/fonts.css" />
 
     <link rel="stylesheet" href="../../../styles/tailwind/tailwind.css" />
@@ -61,7 +66,12 @@
                       value="day"
                       checked
                     />
-                    <label class="date-view__item" for="date-view-day">
+                    <label
+                      class="date-view__item"
+                      for="date-view-day"
+                      data-te-ripple-init
+                      data-te-ripple-color="light"
+                    >
                       <span>Dia</span>
                     </label>
                     <input
@@ -71,7 +81,12 @@
                       value="week"
                       id="date-view-week"
                     />
-                    <label class="date-view__item" for="date-view-week">
+                    <label
+                      class="date-view__item"
+                      for="date-view-week"
+                      data-te-ripple-init
+                      data-te-ripple-color="light"
+                    >
                       <span>Semana</span>
                     </label>
                     <input
@@ -81,7 +96,12 @@
                       value="month"
                       id="date-view-month"
                     />
-                    <label class="date-view__item" for="date-view-month">
+                    <label
+                      class="date-view__item"
+                      for="date-view-month"
+                      data-te-ripple-init
+                      data-te-ripple-color="light"
+                    >
                       <span>Mês</span>
                     </label>
                   </div>
@@ -103,13 +123,21 @@
                     2 de Outubro, Quarta-feira
                   </p>
                   <div class="calendar__button-list">
-                    <button id="button-previous">
+                    <button
+                      id="button-previous"
+                      data-te-ripple-init
+                      data-te-ripple-color="light"
+                    >
                       <!-- prettier-ignore -->
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
                         <path fill-rule="evenodd" d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z" clip-rule="evenodd" />
                       </svg>
                     </button>
-                    <button id="button-next">
+                    <button
+                      id="button-next"
+                      data-te-ripple-init
+                      data-te-ripple-color="light"
+                    >
                       <!-- prettier-ignore -->
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-6">
                         <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
@@ -127,6 +155,7 @@
       </main>
     </div>
 
+    <script src="../../../styles/tw-elements/tw-elements.umd.min.js"></script>
     <script type="module" src="./calendar.js"></script>
   </body>
 </html>

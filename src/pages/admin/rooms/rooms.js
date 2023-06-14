@@ -1,5 +1,3 @@
-require("tw-elements");
-
 import { Sala } from "../../../database/models/sala.js";
 import { userData } from "../../../scripts/behaviour.js";
 import {

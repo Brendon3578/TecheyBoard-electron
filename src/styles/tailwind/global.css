@@ -56,7 +56,7 @@
     @apply flex flex-col gap-1;
   }
   .input-group__label--row {
-    @apply flex-row items-center gap-2 text-gray-600;
+    @apply flex-row items-center gap-2 text-gray-600 underline;
   }
   .input-group__container {
     @apply flex gap-8;
@@ -87,7 +87,7 @@
   }
 
   .emphasis-text {
-    @apply block w-fit rounded-md border border-gray-400/80 bg-gradient-to-t from-gray-200 py-0.5 px-1 font-semibold text-gray-700;
+    @apply block w-fit rounded-md border border-gray-400/80 bg-gradient-to-t from-gray-200 px-1 py-0.5 font-semibold text-gray-700;
   }
 
   /******************* LOGIN PAGE CSS ********************/
@@ -109,7 +109,7 @@
   }
 
   .login__welcome-message {
-    @apply mt-8 mb-4 flex flex-col text-xl font-bold leading-none text-gray-800;
+    @apply mb-4 mt-8 flex flex-col text-xl font-bold leading-none text-gray-800;
   }
   .login__welcome-message #username {
     @apply truncate text-3xl;
@@ -120,7 +120,7 @@
   }
 
   .main__form__input {
-    @apply mt-0.5 block w-full rounded-md border border-gray-400 py-1.5 px-3 text-base font-semibold text-gray-600 shadow outline-none ring-2 ring-gray-200 transition focus:scale-[1.01] focus:ring-violet-600 disabled:cursor-not-allowed disabled:opacity-70;
+    @apply mt-0.5 block w-full rounded-md border border-gray-400 px-3 py-1.5 text-base font-semibold text-gray-600 shadow outline-none ring-2 ring-gray-200 transition focus:scale-[1.01] focus:ring-violet-600 disabled:cursor-not-allowed disabled:opacity-70;
   }
 
   .main__form__button {
@@ -184,7 +184,7 @@
   }
 
   .alert__button-restart {
-    @apply ml-auto mt-2 flex items-center gap-2 rounded-md border border-violet-300 border-t-violet-200 border-b-violet-400/90 bg-white px-3 py-1.5 font-semibold text-violet-600 shadow transition-colors hover:bg-violet-200;
+    @apply ml-auto mt-2 flex items-center gap-2 rounded-md border border-violet-300 border-b-violet-400/90 border-t-violet-200 bg-white px-3 py-1.5 font-semibold text-violet-600 shadow transition-colors hover:bg-violet-200;
   }
 
   /******************* APP LAYOUT ********************/
@@ -279,7 +279,7 @@
   }
 
   .sidebar__label {
-    @apply ml-2 mb-1 w-full text-xs font-bold text-gray-400;
+    @apply mb-1 ml-2 w-full text-xs font-bold text-gray-400;
   }
 
   .sidebar__separator {
@@ -287,7 +287,7 @@
   }
 
   .navigation__link {
-    @apply flex w-full items-center justify-center gap-1 rounded py-1.5 px-2.5 text-sm font-semibold text-gray-500/80 hover:bg-violet-500/25 hover:text-violet-600;
+    @apply flex w-full items-center justify-center gap-1 rounded px-2.5 py-1.5 text-sm font-semibold text-gray-500/80 hover:bg-violet-500/25 hover:text-violet-600;
   }
 
   .app__sidebar span {
@@ -390,7 +390,7 @@
   }
 
   .calendar__event {
-    @apply rounded-md border border-gray-200 bg-gray-100 py-2 px-3 shadow;
+    @apply rounded-md border border-gray-200 bg-gray-100 px-3 py-2 shadow;
   }
 
   .event__header {
@@ -486,7 +486,7 @@
     @apply flex flex-col gap-1;
   }
   .event-popup__info-item {
-    @apply flex cursor-default items-center gap-1 text-sm font-semibold text-gray-500 transition-transform hover:translate-x-3 hover:-translate-y-px hover:scale-110 hover:text-violet-600;
+    @apply flex cursor-default items-center gap-1 text-sm font-semibold text-gray-500 transition-transform hover:-translate-y-px hover:translate-x-3 hover:scale-110 hover:text-violet-600;
   }
   .event-popup__item__icon svg {
     @apply h-4 w-4;
@@ -554,7 +554,7 @@
     @apply flex items-center gap-2 whitespace-nowrap text-base font-medium text-gray-900;
   }
   .table__body__cell--input {
-    @apply pr-0 pl-4;
+    @apply pl-4 pr-0;
   }
   .table__body__cell--no-items {
     @apply text-center;
@@ -583,9 +583,47 @@
     @apply h-5 w-5 text-purple-500 focus:outline-purple-500;
   }
 
+  /* new modal */
+  .my-modal {
+    @apply fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none;
+  }
+
+  .my-modal__dialog {
+    @apply pointer-events-none relative mx-auto my-0 flex h-screen w-auto max-w-lg translate-y-[-50px] items-center justify-center  opacity-0 transition-all duration-300 ease-in-out;
+  }
+
+  .my-modal__container {
+    @apply pointer-events-auto relative flex w-full flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-lg outline-none dark:bg-neutral-600;
+  }
+
+  .my-modal__title-container {
+    @apply flex flex-shrink-0 items-center justify-between rounded-t-md border-b-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50;
+  }
+
+  .my-modal__title {
+    @apply text-xl font-medium leading-normal text-neutral-800 dark:text-neutral-200;
+  }
+
+  .my-modal__close-btn-title {
+    @apply box-content rounded-none border-none hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none;
+  }
+
+  .my-modal__body {
+    @apply relative flex-auto p-4;
+  }
+
+  .my-modal__footer {
+    @apply flex flex-shrink-0 flex-wrap items-center justify-end rounded-b-md border-t-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50;
+  }
+
+  .my-modal__close-btn {
+  }
+
+  .my-modal__confirm-btn
+
   /* modal styles */
   .custom__modal {
-    @apply fixed top-0 left-0 hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none;
+    @apply fixed left-0 top-0 hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none;
   }
 
   .custom__modal__dialog {
@@ -612,7 +650,7 @@
     @apply h-12 w-12 text-violet-600;
   }
   .modal__body__title {
-    @apply text-xl font-bold text-gray-800;
+    @apply text-lg font-semibold text-gray-700;
   }
   .modal__body__label {
     @apply text-gray-600 even:mt-2;
@@ -630,7 +668,7 @@
   }
 
   .account__new-password__form {
-    @apply mt-4 flex w-full flex-col gap-2 rounded-md border border-gray-300 py-4 px-5;
+    @apply mt-4 flex w-full flex-col gap-2 rounded-md border border-gray-300 px-5 py-4;
   }
   .account__new-password__btn-confirm {
     @apply mt-3;
@@ -664,7 +702,15 @@
   }
 }
 
-/* calendar gamabiarra */
+.datepicker {
+  @apply relative;
+}
+
+.datepicker-btn {
+  @apply absolute right-0.5 top-1/2 flex h-5 w-5 -translate-x-1/2 -translate-y-1/2 items-center justify-center border-none bg-transparent outline-none hover:text-violet-500 focus:text-violet-500;
+}
+
+/* calendar gambiarra */
 #calendar .toastui-calendar-section-detail div:not(:last-child),
 #calendar .toastui-calendar-popup-section.toastui-calendar-section-button,
 .toastui-calendar-popup-section.toastui-calendar-section-header

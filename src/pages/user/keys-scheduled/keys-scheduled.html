@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <link
+      rel="stylesheet"
+      href="../../../styles/tw-elements/tw-elements.min.css"
+    />
+
     <link rel="stylesheet" href="../../../styles/fonts.css" />
 
     <link rel="stylesheet" href="../../../styles/tailwind/tailwind.css" />
@@ -55,8 +60,8 @@
                   id="btn-return"
                   disabled
                   class="btn--primary btn"
-                  data-bs-toggle="modal"
-                  data-bs-target="#scheduleModal"
+                  data-te-toggle="modal"
+                  data-te-target="#scheduleModal"
                 >
                   Devolver
                 </button>
@@ -65,8 +70,8 @@
                   id="btn-withdraw"
                   disabled
                   class="btn--primary btn"
-                  data-bs-toggle="modal"
-                  data-bs-target="#scheduleModal"
+                  data-te-toggle="modal"
+                  data-te-target="#scheduleModal"
                 >
                   Retirar
                 </button>
@@ -75,8 +80,8 @@
                   id="btn-remove"
                   disabled
                   class="btn--secondary btn"
-                  data-bs-toggle="modal"
-                  data-bs-target="#scheduleModal"
+                  data-te-toggle="modal"
+                  data-te-target="#scheduleModal"
                 >
                   Excluir
                 </button>
@@ -87,24 +92,36 @@
       </main>
     </div>
 
+    <!-- scheduleModal -->
     <div
-      class="custom__modal modal fade"
+      data-te-modal-init
+      class="my-modal"
       id="scheduleModal"
       tabindex="-1"
-      aria-labelledby="modalLabel"
+      aria-labelledby="scheduleModalModalLabel"
       aria-hidden="true"
     >
-      <div class="custom__modal__dialog modal-dialog">
-        <div class="custom__modal__content modal-content">
-          <div class="modal__header modal-header">
-            <h5 class="modal__header__title" id="modalLabel">Tem certeza?</h5>
+      <div data-te-modal-dialog-ref class="my-modal__dialog">
+        <div class="my-modal__container">
+          <div class="my-modal__title-container">
+            <!--Modal title-->
+            <h5 class="my-modal__title" id="scheduleModalModalLabel">
+              Tem certeza?
+            </h5>
+            <!--Close button-->
             <button
               type="button"
-              class="btn-close box-content h-4 w-4 rounded-none border-none p-1 text-black opacity-50 hover:text-black hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
-              data-bs-dismiss="modal"
-              aria-label="Fechar"
-            ></button>
+              class="my-modal__close-btn-title"
+              data-te-modal-dismiss
+              aria-label="Close"
+            >
+              <!-- prettier-ignore -->
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
           </div>
+
           <div class="modal__body modal-body">
             <!-- prettier-ignore -->
             <svg class="modal__body__icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -122,7 +139,7 @@
             <button
               type="button"
               class="btn--secondary btn"
-              data-bs-dismiss="modal"
+              data-te-modal-dismiss
             >
               Cancelar
             </button>
@@ -130,7 +147,7 @@
               type="button"
               class="btn--primary btn"
               id="modal-btn-label"
-              data-bs-dismiss="modal"
+              data-te-modal-dismiss
             >
               Sim, action
             </button>
@@ -139,6 +156,7 @@
       </div>
     </div>
 
+    <script src="../../../styles/tw-elements/tw-elements.umd.min.js"></script>
     <script type="module" src="./keys-scheduled.js"></script>
   </body>
 </html>

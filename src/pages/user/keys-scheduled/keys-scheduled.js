@@ -1,5 +1,3 @@
-require("tw-elements");
-
 /**
  * @typedef {import('../../types/type.js').scheduling} scheduling
  */
@@ -185,6 +183,9 @@ function confirmAction(actionType) {
     toastMessage = "Agendamento deletado com sucesso!";
     ControleChave.deleteFromId(selectedScheduleId);
     document.querySelector(`tr[id="${selectedScheduleId}"]`).innerHTML = "";
+    setTimeout(() => {
+      location.reload();
+    }, 3000);
   } else if (actionType == "return") {
     toastMessage = "Coloque a chave de volta no Arduino!";
     ControleChave.updateOneColumn(

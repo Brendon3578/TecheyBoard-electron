@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <link
+      rel="stylesheet"
+      href="../../../styles/tw-elements/tw-elements.min.css"
+    />
+
     <link rel="stylesheet" href="../../../styles/fonts.css" />
 
     <link rel="stylesheet" href="../../../styles/tailwind/tailwind.css" />
@@ -79,8 +84,8 @@
 
               <button
                 class="btn--secondary btn--sm btn--w-min btn--with-icon btn"
-                data-bs-toggle="modal"
-                data-bs-target="#changePasswordModal"
+                data-te-toggle="modal"
+                data-te-target="#changePasswordModal"
               >
                 Alterar senha
                 <!-- prettier-ignore -->
@@ -105,23 +110,32 @@
 
     <!-- MODAL DE ALTERAR SENHA -->
     <div
-      class="custom__modal modal fade"
+      data-te-modal-init
+      class="my-modal"
       id="changePasswordModal"
       tabindex="-1"
-      aria-labelledby="modalLabel"
+      aria-labelledby="changePasswordModalLabel"
       aria-hidden="true"
     >
-      <div class="custom__modal__dialog modal-dialog">
-        <div class="custom__modal__content modal-content">
-          <div class="modal__header modal-header">
-            <h5 class="modal__header__title" id="modalLabel">Senha</h5>
+      <div data-te-modal-dialog-ref class="my-modal__dialog">
+        <div class="my-modal__container">
+          <div class="my-modal__title-container">
+            <!--Modal title-->
+            <h5 class="my-modal__title" id="changePasswordModalLabel">Senha</h5>
+            <!--Close button-->
             <button
               type="button"
-              class="btn-close box-content h-4 w-4 rounded-none border-none p-1 text-black opacity-50 hover:text-black hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
-              data-bs-dismiss="modal"
-              aria-label="Fechar"
-            ></button>
+              class="my-modal__close-btn-title"
+              data-te-modal-dismiss
+              aria-label="Close"
+            >
+              <!-- prettier-ignore -->
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
           </div>
+
           <div class="modal__body modal-body">
             <!-- prettier-ignore -->
             <svg class="modal__body__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -188,7 +202,7 @@
             <button
               type="button"
               class="btn--secondary btn"
-              data-bs-dismiss="modal"
+              data-te-modal-dismiss
             >
               Cancelar
             </button>
@@ -197,6 +211,7 @@
       </div>
     </div>
 
+    <script src="../../../styles/tw-elements/tw-elements.umd.min.js"></script>
     <script type="module" src="./user-account.js"></script>
   </body>
 </html>

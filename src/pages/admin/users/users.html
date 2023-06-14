@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <link
+      rel="stylesheet"
+      href="../../../styles/tw-elements/tw-elements.min.css"
+    />
+
     <link rel="stylesheet" href="../../../styles/fonts.css" />
 
     <link rel="stylesheet" href="../../../styles/tailwind/tailwind.css" />
@@ -84,8 +89,8 @@
                   id="btn-edit"
                   disabled
                   class="btn--primary btn"
-                  data-bs-toggle="modal"
-                  data-bs-target="#editModal"
+                  data-te-toggle="modal"
+                  data-te-target="#editModal"
                 >
                   Editar
                 </button>
@@ -93,8 +98,8 @@
                   id="btn-remove"
                   disabled
                   class="btn--secondary btn"
-                  data-bs-toggle="modal"
-                  data-bs-target="#deleteModal"
+                  data-te-toggle="modal"
+                  data-te-target="#deleteModal"
                 >
                   Excluir
                 </button>
@@ -105,37 +110,43 @@
       </main>
     </div>
 
+    <!-- delete modal -->
     <div
-      class="custom__modal modal fade"
+      data-te-modal-init
+      class="my-modal"
       id="deleteModal"
       tabindex="-1"
       aria-labelledby="deleteModalLabel"
       aria-hidden="true"
     >
-      <div class="custom__modal__dialog modal-dialog">
-        <div class="custom__modal__content modal-content">
-          <div class="modal__header modal-header">
-            <h5 class="modal__header__title" id="deleteModalLabel">
-              Tem certeza?
-            </h5>
+      <div data-te-modal-dialog-ref class="my-modal__dialog">
+        <div class="my-modal__container">
+          <div class="my-modal__title-container">
+            <!--Modal title-->
+            <h5 class="my-modal__title" id="deleteModalLabel">Tem certeza?</h5>
+            <!--Close button-->
             <button
               type="button"
-              class="btn-close box-content h-4 w-4 rounded-none border-none p-1 text-black opacity-50 hover:text-black hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
-              data-bs-dismiss="modal"
-              aria-label="Fechar"
-            ></button>
+              class="my-modal__close-btn-title"
+              data-te-modal-dismiss
+              aria-label="Close"
+            >
+              <!-- prettier-ignore -->
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
           </div>
-          <div class="modal__body modal-body">
+
+          <div class="modal__body modal-body" data-te-modal-body-ref>
             <!-- prettier-ignore -->
             <svg class="modal__body__icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" d="M22 10.5h-6m-2.25-4.125a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zM4 19.235v-.11a6.375 6.375 0 0112.75 0v.109A12.318 12.318 0 0110.374 21c-2.331 0-4.512-.645-6.374-1.766z" />
             </svg>
 
             <h5 class="modal__body__title">
-              Tem certeza deseja excluir o Usuário '<span
-                class="username-el"
-              ></span
-              >'?
+              Tem certeza deseja excluir o usuário:
+              <span class="username-el"></span>?
             </h5>
             <p class="modal__body__label">
               Excluindo este Usuário, irá ser apagado junto
@@ -146,13 +157,13 @@
             </p>
           </div>
           <div class="modal__footer modal-footer">
-            <button class="btn--secondary btn" data-bs-dismiss="modal">
+            <button class="btn--secondary btn" data-te-modal-dismiss>
               Cancelar
             </button>
             <button
               class="btn--primary btn"
               id="delete-user-btn"
-              data-bs-dismiss="modal"
+              data-te-modal-dismiss
             >
               Sim, Excluir
             </button>
@@ -161,30 +172,41 @@
       </div>
     </div>
 
+    <!-- edit modal -->
     <div
-      class="custom__modal modal fade"
+      data-te-modal-init
+      class="my-modal"
       id="editModal"
       tabindex="-1"
       aria-labelledby="editModalLabel"
       aria-hidden="true"
     >
-      <div class="custom__modal__dialog modal-dialog">
-        <div class="custom__modal__content modal-content">
-          <div class="modal__header modal-header">
-            <h5 class="modal__header__title" id="editModalLabel">
+      <div data-te-modal-dialog-ref class="my-modal__dialog">
+        <div class="my-modal__container">
+          <div class="my-modal__title-container">
+            <!--Modal title-->
+            <h5 class="my-modal__title" id="editModalLabel">
               Editar o Usuário
             </h5>
+            <!--Close button-->
             <button
               type="button"
-              class="btn-close box-content h-4 w-4 rounded-none border-none p-1 text-black opacity-50 hover:text-black hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
-              data-bs-dismiss="modal"
-              aria-label="Fechar"
-            ></button>
+              class="my-modal__close-btn-title"
+              data-te-modal-dismiss
+              aria-label="Close"
+            >
+              <!-- prettier-ignore -->
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
           </div>
-          <div class="modal__body modal-body">
+
+          <!-- modal body -->
+          <div class="modal__body modal-body" data-te-modal-body-ref>
             <!-- prettier-ignore -->
             <svg class="modal__body__icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/>
             </svg>
 
             <p class="modal__body__label">
@@ -263,23 +285,33 @@
                   type="button"
                   class="btn--w-min btn--secondary btn--with-icon btn--sm btn"
                   title="Resetar a senha para 12345"
-                  data-bs-dismiss="modal"
+                  data-te-modal-dismiss
                 >
                   Resetar Senha
 
-                  <!-- prettier-ignore -->
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
-                    <path fill-rule="evenodd" d="M14.5 1A4.5 4.5 0 0010 5.5V9H3a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-1.5V5.5a3 3 0 116 0v2.75a.75.75 0 001.5 0V5.5A4.5 4.5 0 0014.5 1z" clip-rule="evenodd" />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    class="h-5 w-5"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M14.5 1A4.5 4.5 0 0010 5.5V9H3a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-1.5V5.5a3 3 0 116 0v2.75a.75.75 0 001.5 0V5.5A4.5 4.5 0 0014.5 1z"
+                      clip-rule="evenodd"
+                    />
                   </svg>
                 </button>
               </div>
             </form>
           </div>
+          <!--Modal footer-->
+
           <div class="modal__footer modal-footer">
             <button
               type="button"
               class="btn--secondary btn"
-              data-bs-dismiss="modal"
+              data-te-modal-dismiss
             >
               Cancelar
             </button>
@@ -287,7 +319,7 @@
               type="button"
               id="update-btn"
               class="btn--primary btn"
-              data-bs-dismiss="modal"
+              data-te-modal-dismiss
             >
               Salvar alterações
             </button>
@@ -297,6 +329,7 @@
     </div>
 
     <script type="module" src="./users.js"></script>
+    <script src="../../../styles/tw-elements/tw-elements.umd.min.js"></script>
     <script type="module" src="../../../scripts/behaviour.js"></script>
   </body>
 </html>

@@ -1,5 +1,3 @@
-require("tw-elements");
-
 import { Funcionario } from "../../../database/models/funcionario.js";
 import { saveUserData, userData } from "../../../scripts/behaviour.js";
 import { showToastMessage } from "../../../scripts/utils.js";

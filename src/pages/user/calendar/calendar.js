@@ -191,7 +191,7 @@ function createNewScheduleOnCalendar(schedule) {
   // se no calendário o horário agendado já tiver passado ou a chave já foi devolvida,
   // o agendamento irá ficar cinza indicando que aquele agendamento já passou/devolvido
   if (
-    schedule.status == "DEVOLVIDO" ||
+    schedule.status == "RETURNED" ||
     schedule.scheduledTime.keyReturnedHour.getTime() <
       SYSTEM_DATE.getToday().getTime()
   ) {

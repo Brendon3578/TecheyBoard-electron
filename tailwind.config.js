@@ -11,5 +11,8 @@ module.exports = {
       poppins: ["Poppins", '"sans serif"'],
     },
   },
-  plugins: [require("@tailwindcss/forms"), require("tw-elements/dist/plugin")],
+  plugins: [
+    require("@tailwindcss/forms"),
+  ],
+  darkMode: "class",
 };
