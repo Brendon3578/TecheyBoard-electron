@@ -10,7 +10,7 @@ Esse é o repositório dos códigos feitos para o projeto TecheyBord, feito pela
 
 Vale destacar que o projeto, consiste em duas partes: o **Software** (o aplicativo desktop), onde ocorre o de agendamento de salas (que o claviculário libera a chave da respectiva sala) e a organização e controle de chaves (quem agendou a sala e retirou a chave), e o **Hardware**, na qual se consiste a parte física da aplicação do claviculário, feito utilizando a plataforma e componentes eletrônicos do Arduino, no qual  realiza a parte mecânica do projeto.
 
-## Imagens das interfaces visuais do software (Telas)
+## 🖼 Imagens das interfaces visuais do software (Telas)
 
 <details>
   <summary>Interface Principal (index)</summary>
@@ -68,7 +68,7 @@ Vale destacar que o projeto, consiste em duas partes: o **Software** (o aplicati
   </details>
 
   <details>
-    <summary>Tela de usuário - agendar chave (selecinando a data)</summary>
+    <summary>Tela de usuário - agendar chave (selecionado a data)</summary>
     <img alt="Tela de usuário" src="./.github/images/user-06.PNG" width="600px">
   </details>
 
@@ -126,11 +126,46 @@ Vale destacar que o projeto, consiste em duas partes: o **Software** (o aplicati
 
 </details>
 
+## 🖼 Imagens da aplicação do hardware
+
+<details>
+  <summary>Prótotipos do Arduino feito no Tinkercad</summary>
+
+  <details>
+    <summary>Protótipo utilizando 4 servomotores para as chaves</summary>
+    <img alt="Protótipo utilizando 4 servomotores" src="./arduino_scripts/prototipo-4-servomotores/arduteam-prototipo-01.png" width="600px">
+  </details>
+
+  <details>
+    <summary>Exemplo da utilização de 1 servomotor na placa do Arduino UNO</summary>
+    <img alt="Protótipo utilizando 4 servomotores" src="./arduino_scripts/servo-motor-example.PNG" width="600px">
+  </details>
+
+</details>
+
+<hr>
+
+<details>
+  <summary>Protótipos em execução</summary>
+
+  <details>
+    <summary>Protótipo com o servo motor liberado</summary>
+    <img alt="Protótipo com o servo motor liberado" src="./arduino_scripts/fotos/foto-servomotor-liberado.jpeg" width="600px">
+  </details>
+
+  <details>
+    <summary>Protótipo com o servo motor preso</summary>
+    <img alt="Protótipo com o servo motor preso" src="./arduino_scripts/fotos/foto-servomotor-fechado.jpeg" width="600px">
+  </details>
+</details>
+
+<hr>
+
 ## Outros diretórios da aplicação
 
 - [Diretório das estilizações (CSS e TailwindCSS)](./src/styles/)
 - [Diretório dos scripts javascript](./src/scripts/)
-- [Diretório de fontes e imagens do iistema](./src/assets/)
+- [Diretório de fontes e imagens do sistema](./src/assets/)
 - [Diretório de scripts do banco de dados (MySql)](./database_scripts/)
 - [Diretório dos códigos do arduino (C++ e C)](./arduino_scripts/)
 
@@ -156,7 +191,7 @@ Após isso, entre com um Prompt de Comando (CMD), dentro da pasta que está inst
 
 ## Utilizando o sistema
 
-Depois de seguir os passos de [nstalação do software](#instalação) e ter configurado o servidor MySql na porta 3306, para testar as funcionalidades do sistema é necessário seguir os seguintes passos
+Depois de seguir os passos de [instalação do software](#instalação) e ter configurado o servidor MySql na porta 3306, para testar as funcionalidades do sistema é necessário seguir os seguintes passos
 
 1. Usar o comando `npm start` para aplicar a aplicação desktop
 2. Acessar a página de administrador para criar um cadastro: colocar **admin** no campo da matrícula e **12345** no campo de senha

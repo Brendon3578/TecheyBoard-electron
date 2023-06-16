@@ -15,7 +15,7 @@
     "tutorial",
     "demo"
   ],
-  "author": "Brendon Gomes <brendongomes40@gmail.com> (https://brendongomes.vercel.app/)",
+  "author": "Brendon Gomes",
   "license": "MIT",
   "devDependencies": {
     "@electron/rebuild": "^3.2.13",
