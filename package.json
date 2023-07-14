@@ -19,7 +19,7 @@
   "license": "MIT",
   "devDependencies": {
     "@electron/rebuild": "^3.2.13",
-    "@tailwindcss/forms": "^0.5.3",
+    "@tailwindcss/forms": "^0.5.4",
     "autoprefixer": "^10.4.14",
     "electron": "^25.1.0",
     "postcss": "^8.4.24",
