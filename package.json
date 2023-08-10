@@ -21,7 +21,7 @@
     "@electron/rebuild": "^3.2.13",
     "@tailwindcss/forms": "^0.5.3",
     "autoprefixer": "^10.4.14",
-    "electron": "^25.1.0",
+    "electron": "^25.5.0",
     "postcss": "^8.4.24",
     "prettier": "^2.8.8",
     "prettier-plugin-tailwindcss": "^0.3.0",
