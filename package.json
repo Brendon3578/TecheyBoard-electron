@@ -33,7 +33,7 @@
     "mysql": "^2.18.1",
     "tippy.js": "^6.3.7",
     "toastify-js": "^1.12.0",
-    "tw-elements": "^1.0.0-beta2",
+    "tw-elements": "^1.0.0-beta3",
     "yarn": "^1.22.19"
   },
   "packageManager": "yarn@3.2.3"
