@@ -51,18 +51,18 @@ INSERT INTO tbFuncionario (
   )
 VALUES (
     '12345',
-    'Antônio Cesar',
+    'Professor',
     '123',
-    '11 95412 3013',
-    'antoniocesar97@etec.sp.gov.br',
+    '11 93123 1023',
+    'professor@etec.com.br',
     'Professor'
   ),
   (
     '13231',
-    'Brendon Gomes da Silva',
+    'Aluni',
     '123',
-    '11 95125 1512',
-    'brendon.silva13@etec.sp.gov.br',
+    '11 92123 1251',
+    'aluno@etec.com.br',
     'Professor'
   ),
   (
