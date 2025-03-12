@@ -1,14 +1,30 @@
-<h1 align="center">
-    <img src="./src/assets/system-logo.png" alt="Arduteam" width="250px">
-</h1>
-
-<small>Etec de Sapopemba - 3ºC - Desenvolvimento de Sistemas - 2022</small>
-
 # Techeybord
 
-Esse é o repositório dos códigos feitos para o projeto TecheyBord, feito pela equipe **Arduteam**. O projeto consiste em um claviculário robotizado, feito utilizando componentes eletrônicos Arduino, para uma maior organização administrativa de controle de chaves da **Etec de Sapopemba**.
+<img src="./src/assets/system-logo.png" alt="Arduteam" width="200px">
 
-Vale destacar que o projeto, consiste em duas partes: o **Software** (o aplicativo desktop), onde ocorre o de agendamento de salas (que o claviculário libera a chave da respectiva sala) e a organização e controle de chaves (quem agendou a sala e retirou a chave), e o **Hardware**, na qual se consiste a parte física da aplicação do claviculário, feito utilizando a plataforma e componentes eletrônicos do Arduino, no qual  realiza a parte mecânica do projeto.
+Etec de Sapopemba - Desenvolvimento de Sistemas - 3ºC - 2022
+
+![Electron.js](https://img.shields.io/badge/Electron-191970?style=for-the-badge&logo=Electron&logoColor=white)
+![Arduino](https://img.shields.io/badge/-Arduino-00979D?style=for-the-badge&logo=Arduino&logoColor=white)
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+
+Este repositório contém o projeto **TecheyBord**, desenvolvido pela equipe **Arduteam** ao longo de 2022 na Etec de Sapopemba como parte do Trabalho de Conclusão de Curso (TCC).
+
+## 💻 Descrição
+
+O TecheyBord é um claviculário robotizado que combina hardware baseado na plataforma Arduino e um software desktop desenvolvido com Electron para otimizar o controle e a administração das chaves de uma escola.
+
+O projeto é dividido em duas partes principais:
+
+- **Software**: Um aplicativo desktop que permite o agendamento de reservas de salas de aula. No horário agendado, o claviculário libera automaticamente a chave correspondente à sala. Além disso, o sistema gerencia o controle das chaves, registrando quem fez a reserva, quem retirou a chave e quando.
+- **Hardware**: O sistema físico do claviculário, construído com Arduino e componentes eletrônicos, responsável pela automação mecânica do projeto, incluindo o armazenamento e liberação das chaves de forma segura e organizada.
+
+O TecheyBord foi projetado para tornar a administração das chaves mais eficiente, reduzindo falhas humanas e aumentando a segurança e o controle no gerenciamento das salas de aula.
 
 ## 🖼 Imagens das interfaces visuais do software (Telas)
 
@@ -187,7 +203,8 @@ Após isso, entre com um Prompt de Comando (CMD), dentro da pasta que está inst
   npm start
 ```
 
-É necessário também iniciar o servidor MySQL do XAMPP na porta 3306
+> [!IMPORTANT]
+> É necessário também iniciar o servidor MySQL do XAMPP, e estar disponível na porta 3306
 
 ## Utilizando o sistema
 
@@ -195,3 +212,9 @@ Depois de seguir os passos de [instalação do software](#instalação) e ter co
 
 1. Usar o comando `npm start` para aplicar a aplicação desktop
 2. Acessar a página de administrador para criar um cadastro: colocar **admin** no campo da matrícula e **12345** no campo de senha
+
+---
+
+<h3 align="center">
+    Feito com 💜 pela equipe do ArduTeam</a>
+</h3>
